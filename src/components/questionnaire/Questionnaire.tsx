@@ -56,7 +56,7 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
-export default function Questionnare() {
+export default function Questionnaire() {
   const [jenres, setJenres] = useState<IJenre[]>([
     { id: 1, title: "Ужасы" },
     { id: 2, title: "Комедия" },

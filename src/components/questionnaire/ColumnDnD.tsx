@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { IJenre } from "./Questionnare";
+import { IJenre } from "./Questionnaire";
 import {
   SortableContext,
   verticalListSortingStrategy,

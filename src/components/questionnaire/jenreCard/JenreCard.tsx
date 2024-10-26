@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { IJenre } from "../Questionnare";
+import { IJenre } from "../Questionnaire";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 

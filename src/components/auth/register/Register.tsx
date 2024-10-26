@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   FormControl,
   InputLabel,
@@ -8,12 +7,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { CSSProperties, useEffect } from "react";
+import { CSSProperties } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { fullNameValidation } from "../validation";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginContainer } from "../login/loginStyles";
 import { IRegister } from "../../../interfaces/IRegister";
+import { StyledBox } from "./registerStyles";
+import { StyledContainer } from "../authStyles";
 
 const linkStyle: CSSProperties = {
   maxWidth: "360px",
@@ -21,14 +21,14 @@ const linkStyle: CSSProperties = {
 
 export default function Register() {
   const navigate = useNavigate()
+
   const {
     handleSubmit,
     control,
     reset,
-    formState: { errors },
-  } = useForm<IRegister>({
-    mode: "onBlur",
-  });
+    formState: { errors }
+  } = useForm<IRegister>({mode: "onBlur"});
+
   const onSubmit: SubmitHandler<IRegister> = (data) => {
     console.log(data);
     navigate('/auth/login')
@@ -36,7 +36,7 @@ export default function Register() {
   };
 
   return (
-    <LoginContainer>
+    <StyledContainer>
       <Typography variant="h5" component="div" gutterBottom={true}>
         Регистрация
       </Typography>
@@ -155,21 +155,14 @@ export default function Register() {
         </Button>
       </form>
 
-      <Box
-        width={"360px"}
-        display={"flex"}
-        gap={2}
-        fontSize={8}
-        margin={"10px 0 0"}
-        justifyContent={"space-between"}
-      >
+      <StyledBox>
         <Typography component="span" padding={0}>
           Уже есть аккаунт?
         </Typography>
         <Typography component="span" padding={0}>
           <Link to="/auth/login">Войти</Link>
         </Typography>
-      </Box>
-    </LoginContainer>
+      </StyledBox>
+    </StyledContainer>
   );
 }

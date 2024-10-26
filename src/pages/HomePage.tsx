@@ -1,12 +1,12 @@
 import { Container } from "@mui/material";
 import News from "../components/news/News";
-import Questionnare from "../components/questionnaire/Questionnare";
+import Questionnaire from "../components/questionnaire/Questionnaire";
 
 export default function HomePage() {
   return (
     <Container maxWidth="xl">
       <News />
-      <Questionnare />
+      <Questionnaire />
     </Container>
   );
 }
