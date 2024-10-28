@@ -1,7 +1,7 @@
-import { Box, Typography } from "@mui/material";
-import { IJenre } from "../Questionnaire";
+import { Typography } from "@mui/material";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { IJenre } from "../../../interfaces/IQuestionnare";
 
 export default function JenreCard({ jenre }: { jenre: IJenre }) {
   const { id, title } = { ...jenre };

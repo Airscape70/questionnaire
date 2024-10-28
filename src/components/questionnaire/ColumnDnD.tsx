@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
-import { IJenre } from "./Questionnaire";
 import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import JenreCard from "./jenreCard/JenreCard";
+import { IJenre } from "../../interfaces/IQuestionnare";
 
 export default function ColumnDnD({ jenres }: { jenres: IJenre[] }) {
   return (

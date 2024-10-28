@@ -51,7 +51,7 @@ export default function NewsCard() {
   };
 
   return (
-    <Card sx={{margin: '0 0 50px'}}>
+    <Card sx={{ margin: "0 0 50px" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

@@ -5,7 +5,7 @@ import Questionnaire from "../components/questionnaire/Questionnaire";
 export default function HomePage() {
   return (
     <Container maxWidth="xl">
-      <News />
+      {/* <News /> */}
       <Questionnaire />
     </Container>
   );
