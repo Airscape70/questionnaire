@@ -4,6 +4,7 @@ import Login from "./components/auth/login/Login";
 import Register from "./components/auth/register/Register";
 import AuthPage from "./pages/AuthPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import RemindPassword from "./components/auth/login/RemindPassword";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="auth" element={<AuthPage />}>
           <Route path="login" element={<Login />} />
+          <Route path="reminder" element={<RemindPassword />} />
           <Route path="register" element={<Register />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />

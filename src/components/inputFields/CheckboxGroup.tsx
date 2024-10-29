@@ -1,11 +1,7 @@
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { ValidationRules } from "../../interfaces/IAuth";
-import { REQUIRED_FIELD } from "../../constants/validations";
 import { CheckboxFieldInput } from "./CheckboxFieldInput";
 
 export interface CheckboxGroupProps {

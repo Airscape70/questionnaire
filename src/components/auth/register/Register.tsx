@@ -12,7 +12,8 @@ import {
 } from "../../../constants/validations";
 import { TextFieldInput } from "../../inputFields/TextFieldInput";
 import { SelectFieldInput } from "../../inputFields/SelectFieldInput";
-import { IRegister } from "../../../interfaces/IAuth";
+import { IUser } from "../../../interfaces/IAuth";
+import { register } from "../../../api/localApi";
 
 const linkStyle: CSSProperties = {
   maxWidth: "360px",
@@ -20,10 +21,10 @@ const linkStyle: CSSProperties = {
 
 export default function Register() {
   const navigate = useNavigate();
-  const methods = useForm<IRegister>({ mode: "onBlur" });
+  const methods = useForm<IUser>({ mode: "onBlur" });
 
-  const onSubmit: SubmitHandler<IRegister> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IUser> = (data) => {
+    register(data)
     navigate("/auth/login");
     methods.reset();
   };
