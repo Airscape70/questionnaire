@@ -18,24 +18,18 @@ import {
 } from "@dnd-kit/core";
 import { FC, useState } from "react";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
-export interface DndColumnProps {
+export interface IDndColumnProps {
   name: string;
   label: string;
+  options: IJenre[];
 }
 
-export const DndColumn: FC<DndColumnProps> = ({ name, label }) => {
-  const [jenres, setJenres] = useState<IJenre[]>([
-    { id: 1, title: "Ужасы" },
-    { id: 2, title: "Комедия" },
-    { id: 3, title: "Драмма" },
-    { id: 4, title: "Триллер" },
-    { id: 5, title: "Боевик" },
-    { id: 6, title: "Мультфильм" },
-  ]);
+export const DndColumn: FC<IDndColumnProps> = ({ name, label, options }) => {
+  const [jenres, setJenres] = useState<IJenre[]>(options);
 
-  const { control } = useFormContext();
+  const { setValue, control } = useFormContext();
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -51,6 +45,7 @@ export const DndColumn: FC<DndColumnProps> = ({ name, label }) => {
     });
   };
 
+  
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(TouchSensor),
@@ -59,6 +54,8 @@ export const DndColumn: FC<DndColumnProps> = ({ name, label }) => {
     })
   );
 
+  setValue(name, jenres);
+  
   return (
     <DndContext
       sensors={sensors}
@@ -78,20 +75,15 @@ export const DndColumn: FC<DndColumnProps> = ({ name, label }) => {
           gap: "20px",
         }}
       >
-        <Controller
-          control={control}
-          name={name}
-          render={({ field }) => (
-            <SortableContext
-              items={jenres}
-              strategy={verticalListSortingStrategy}
-            >
-              {jenres.map((jenre) => (
-                <JenreCard key={jenre.id} jenre={jenre} />
-              ))}
-            </SortableContext>
-          )}
-        />
+        <SortableContext
+          {...control}
+          items={jenres}
+          strategy={verticalListSortingStrategy}
+        >
+          {jenres.map((jenre) => (
+            <JenreCard key={jenre.id} jenre={jenre} />
+          ))}
+        </SortableContext>
       </Box>
     </DndContext>
   );

@@ -8,7 +8,6 @@ import {
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { ValidationRules } from "../../interfaces/IAuth";
-import { CheckboxFieldInput } from "./CheckboxFieldInput";
 
 export interface CheckboxGroupProps {
   name: string;

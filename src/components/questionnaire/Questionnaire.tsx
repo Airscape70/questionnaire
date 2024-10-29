@@ -7,8 +7,8 @@ import { TextFieldInput } from "../inputFields/TextFieldInput";
 import { SelectFieldInput } from "../inputFields/SelectFieldInput";
 import { SwitchFieldInput } from "../inputFields/SwitchFieldInput";
 import { CheckboxGroup } from "../inputFields/CheckboxGroup";
-import UploadBtn from "../inputFields/UploadBtn";
 import { DndColumn } from "../inputFields/DndColumn";
+import { UploadBtn } from "../inputFields/UploadBtn";
 
 export default function Questionnaire() {
   const methods = useForm<IQuestionnare>({ mode: "onBlur" });
@@ -55,9 +55,20 @@ export default function Questionnaire() {
           </Box>
 
           <Box>
-            <DndColumn name="favoriteJenres" label="Топ жанров фильмов" />
+            <DndColumn
+              name="favoriteJenres"
+              label="Топ жанров фильмов"
+              options={[
+                { id: 1, title: "Ужасы" },
+                { id: 2, title: "Комедия" },
+                { id: 3, title: "Драмма" },
+                { id: 4, title: "Триллер" },
+                { id: 5, title: "Боевик" },
+                { id: 6, title: "Мультфильм" },
+              ]}
+            />
 
-            <UploadBtn />
+            <UploadBtn name="userFile"/>
           </Box>
 
           <Button
