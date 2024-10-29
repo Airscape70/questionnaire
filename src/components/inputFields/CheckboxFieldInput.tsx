@@ -3,12 +3,13 @@ import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
 export interface CheckboxFieldInputProps {
-  name: string;
+  value: string;
   label: string;
+  ref: null;
 }
 
 export const CheckboxFieldInput: FC<CheckboxFieldInputProps> = ({
-  name,
+  value,
   label,
 }) => {
   const { control } = useFormContext();
@@ -19,7 +20,7 @@ export const CheckboxFieldInput: FC<CheckboxFieldInputProps> = ({
       control={
         <Controller
           control={control}
-          name={name}
+          name={value}
           render={({ field }) => (
             <Checkbox
               {...field}
@@ -32,4 +33,3 @@ export const CheckboxFieldInput: FC<CheckboxFieldInputProps> = ({
     />
   );
 };
-

@@ -11,7 +11,7 @@ export interface TextFieldInputProps {
   name: string;
   label: string;
   errorMessage?: string;
-  type: "text" | "password" | "email"| "tel";
+  type: "text" | "password" | "email" | "tel";
   rules?: ValidationRules;
 }
 
@@ -21,9 +21,10 @@ export const TextFieldInput: FC<TextFieldInputProps> = ({
   type,
   rules,
 }) => {
-
-  const { control, formState: { errors } } = useFormContext();
-
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <Controller
@@ -33,16 +34,19 @@ export const TextFieldInput: FC<TextFieldInputProps> = ({
       render={({ field }) => (
         <TextField
           label={label}
+          autoComplete={type}
           type={type}
           size="small"
           margin="normal"
           fullWidth={true}
-          onChange={(e) => field.onChange(e)}
-          value={field.value}
+          onChange={(e) => {
+            field.onChange(e);
+          }}
+          value={field.value !== undefined ? field.value : ""}
           error={!!errors[name]?.message}
           helperText={errors[name]?.message?.toString()}
         />
       )}
     />
   );
-}
+};

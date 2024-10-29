@@ -14,7 +14,6 @@ export interface RadioFieldInputProps {
   name: string;
   label: string;
   options: string[];
-  defaultValue: string;
   errorMessage?: string;
   rules?: ValidationRules;
 }
@@ -22,14 +21,9 @@ export interface RadioFieldInputProps {
 export const RadioFieldInput: FC<RadioFieldInputProps> = ({
   name,
   label,
-  defaultValue,
   options,
-  rules,
 }) => {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
+  const { control } = useFormContext();
 
   return (
     <Controller
@@ -40,7 +34,7 @@ export const RadioFieldInput: FC<RadioFieldInputProps> = ({
         <Box sx={{ border: "1px solid black", padding: "20px" }}>
           <FormControl>
             <Typography variant="h5"> {label}</Typography>
-            <RadioGroup defaultValue={defaultValue} name={name}>
+            <RadioGroup name={name}>
               {options.map((option, index) => (
                 <FormControlLabel
                   key={index}

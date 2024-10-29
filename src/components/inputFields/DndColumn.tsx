@@ -4,7 +4,7 @@ import {
 } from "@dnd-kit/sortable";
 import JenreCard from "../questionnaire/jenreCard/JenreCard";
 import { IJenre } from "../../interfaces/IQuestionnare";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import {
   closestCorners,
   DndContext,
@@ -16,11 +16,16 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+import { Controller, useFormContext } from "react-hook-form";
 
+export interface DndColumnProps {
+  name: string;
+  label: string;
+}
 
-export default function DndColumn() {
+export const DndColumn: FC<DndColumnProps> = ({ name, label }) => {
   const [jenres, setJenres] = useState<IJenre[]>([
     { id: 1, title: "Ужасы" },
     { id: 2, title: "Комедия" },
@@ -29,6 +34,8 @@ export default function DndColumn() {
     { id: 5, title: "Боевик" },
     { id: 6, title: "Мультфильм" },
   ]);
+
+  const { control } = useFormContext();
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -58,6 +65,8 @@ export default function DndColumn() {
       onDragEnd={handleDragEnd}
       collisionDetection={closestCorners}
     >
+      <Typography variant="h5">{label}</Typography>
+
       <Box
         sx={{
           backgroundColor: "rgb(240, 240, 240)",
@@ -69,12 +78,21 @@ export default function DndColumn() {
           gap: "20px",
         }}
       >
-        <SortableContext items={jenres} strategy={verticalListSortingStrategy}>
-          {jenres.map((jenre) => (
-            <JenreCard key={jenre.id} jenre={jenre} />
-          ))}
-        </SortableContext>
+        <Controller
+          control={control}
+          name={name}
+          render={({ field }) => (
+            <SortableContext
+              items={jenres}
+              strategy={verticalListSortingStrategy}
+            >
+              {jenres.map((jenre) => (
+                <JenreCard key={jenre.id} jenre={jenre} />
+              ))}
+            </SortableContext>
+          )}
+        />
       </Box>
     </DndContext>
   );
-}
+};

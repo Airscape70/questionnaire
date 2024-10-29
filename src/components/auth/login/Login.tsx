@@ -24,14 +24,14 @@ export default function Login() {
   const  onSubmit: SubmitHandler<ILogin> = (data) => {
     const user = login(data);
     methods.reset();
-    console.log(user)
     if (!user) {
       alert("Не правильный логин или пароль");
-      setRemindLink(!remindBtn);
+      setRemindLink(true);
     } else {
-      alert(`Привет ${user.fullName}`)
+      alert(`Привет, ${user.fullName}!`)
       navigate('/')
     }
+
   };
 
   return (

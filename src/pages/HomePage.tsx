@@ -1,12 +1,14 @@
 import { Container } from "@mui/material";
 import News from "../components/news/News";
-import Questionnaire from "../components/questionnaire/Questionnaire";
+import SimpleSnackbar from "../components/news/SimpleSnackbar";
+
 
 export default function HomePage() {
+
   return (
     <Container maxWidth="xl">
-      {/* <News /> */}
-      <Questionnaire />
+      <News />
+      <SimpleSnackbar />
     </Container>
   );
 }

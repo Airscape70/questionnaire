@@ -34,14 +34,16 @@ export const SelectFieldInput: FC<TextFieldInputProps> = ({
           </InputLabel>
           <Select
             size="small"
-            labelId={label}
+            labelId={name}
             label={label}
-            value={field.value}
+            value={field.value !== undefined ? field.value : ""}
             onChange={(e) => field.onChange(e)}
             error={!!errors[name]?.message}
           >
             {options.map((option, index) => (
-              <MenuItem value={option}>{option}</MenuItem>
+              <MenuItem key={index} value={option}>
+                {option}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

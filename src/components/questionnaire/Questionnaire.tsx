@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { IQuestionnare } from "../../interfaces/IQuestionnare";
 import { selectValidation } from "../../constants/validations";
@@ -7,10 +7,8 @@ import { TextFieldInput } from "../inputFields/TextFieldInput";
 import { SelectFieldInput } from "../inputFields/SelectFieldInput";
 import { SwitchFieldInput } from "../inputFields/SwitchFieldInput";
 import { CheckboxGroup } from "../inputFields/CheckboxGroup";
-import DndColumn from "../inputFields/DndColumn";
 import UploadBtn from "../inputFields/UploadBtn";
-
-
+import { DndColumn } from "../inputFields/DndColumn";
 
 export default function Questionnaire() {
   const methods = useForm<IQuestionnare>({ mode: "onBlur" });
@@ -18,6 +16,7 @@ export default function Questionnaire() {
   const onSubmit: SubmitHandler<IQuestionnare> = (data) => {
     console.log(data);
     methods.reset();
+    alert("Большое спасибо!");
   };
 
   return (
@@ -40,7 +39,6 @@ export default function Questionnaire() {
             <RadioFieldInput
               name="weather"
               label="Любимое время года"
-              defaultValue="Зима"
               options={["Зима", "Весна", "Лето", "Осень"]}
             />
 
@@ -57,10 +55,8 @@ export default function Questionnaire() {
           </Box>
 
           <Box>
-            <Typography variant="h5">Твой топ жанров фильмов</Typography>
+            <DndColumn name="favoriteJenres" label="Топ жанров фильмов" />
 
-            <DndColumn />
-            
             <UploadBtn />
           </Box>
 
