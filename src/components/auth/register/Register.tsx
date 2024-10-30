@@ -1,9 +1,9 @@
 import { Button, Typography } from "@mui/material";
-import { CSSProperties } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { StyledContainer, StyledRegisterBox } from "../authStyles";
+import { formStyle, StyledContainer, StyledRegisterBox } from "../authStyles/authStyles";
 import {
+  emailValidation,
   fullNameValidation,
   loginValidation,
   passwordValidation,
@@ -15,11 +15,9 @@ import { SelectFieldInput } from "../../inputFields/SelectFieldInput";
 import { IUser } from "../../../interfaces/IAuth";
 import { register } from "../../../api/localApi";
 
-const linkStyle: CSSProperties = {
-  maxWidth: "360px",
-};
 
 export default function Register() {
+
   const navigate = useNavigate();
   const methods = useForm<IUser>({ mode: "onBlur" });
 
@@ -36,12 +34,20 @@ export default function Register() {
       </Typography>
 
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)} style={linkStyle}>
+        <form onSubmit={methods.handleSubmit(onSubmit)} style={formStyle}>
+
           <TextFieldInput
             name="login"
             label="Логин"
             type="text"
             rules={loginValidation}
+          />
+
+          <TextFieldInput
+            name="email"
+            label="Почта"
+            type="email"
+            rules={emailValidation}
           />
 
           <TextFieldInput
@@ -85,6 +91,7 @@ export default function Register() {
       </FormProvider>
 
       <StyledRegisterBox>
+
         <Typography component="span" padding={0}>
           Уже есть аккаунт?
         </Typography>
@@ -92,6 +99,7 @@ export default function Register() {
         <Typography component="span" padding={0}>
           <Link to="/auth/login">Войти</Link>
         </Typography>
+
       </StyledRegisterBox>
     </StyledContainer>
   );

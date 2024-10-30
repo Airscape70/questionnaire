@@ -68,7 +68,7 @@ export default function Questionnaire() {
               ]}
             />
 
-            <UploadBtn name="userFile"/>
+            <UploadBtn name="userFile" label="Загрузить"/>
           </Box>
 
           <Button

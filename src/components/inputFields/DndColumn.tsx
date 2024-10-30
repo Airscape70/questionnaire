@@ -3,8 +3,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import JenreCard from "../questionnaire/jenreCard/JenreCard";
-import { IJenre } from "../../interfaces/IQuestionnare";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import {
   closestCorners,
   DndContext,
@@ -19,17 +18,15 @@ import {
 import { FC, useState } from "react";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { useFormContext } from "react-hook-form";
+import { DndBoxStyled } from "./fieldStyles/fieldStyles";
+import { IDnd, IJenre } from "../../interfaces/IField";
 
-export interface IDndColumnProps {
-  name: string;
-  label: string;
-  options: IJenre[];
-}
 
-export const DndColumn: FC<IDndColumnProps> = ({ name, label, options }) => {
+
+export const DndColumn: FC<IDnd> = ({ name, label, options }) => {
   const [jenres, setJenres] = useState<IJenre[]>(options);
-
   const { setValue, control } = useFormContext();
+  setValue(name, jenres);
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -45,7 +42,6 @@ export const DndColumn: FC<IDndColumnProps> = ({ name, label, options }) => {
     });
   };
 
-  
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(TouchSensor),
@@ -54,8 +50,6 @@ export const DndColumn: FC<IDndColumnProps> = ({ name, label, options }) => {
     })
   );
 
-  setValue(name, jenres);
-  
   return (
     <DndContext
       sensors={sensors}
@@ -64,17 +58,7 @@ export const DndColumn: FC<IDndColumnProps> = ({ name, label, options }) => {
     >
       <Typography variant="h5">{label}</Typography>
 
-      <Box
-        sx={{
-          backgroundColor: "rgb(240, 240, 240)",
-          borderRadius: "5px",
-          padding: "15px",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-      >
+      <DndBoxStyled>
         <SortableContext
           {...control}
           items={jenres}
@@ -84,7 +68,7 @@ export const DndColumn: FC<IDndColumnProps> = ({ name, label, options }) => {
             <JenreCard key={jenre.id} jenre={jenre} />
           ))}
         </SortableContext>
-      </Box>
+      </DndBoxStyled>
     </DndContext>
   );
 };

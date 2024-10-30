@@ -1,5 +1,11 @@
 import { Box } from "@mui/material";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
+
+
+export const formStyle: CSSProperties = {
+  maxWidth: "360px",
+};
+
 
 export const StyledContainer = styled(Box)({
   width: "50vw",

@@ -5,7 +5,3 @@ export interface IQuestionnare {
   music: string;
   beer: boolean;
 }
-export interface IJenre {
-  id: number | string;
-  title: string;
-}

@@ -7,25 +7,10 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { ValidationRules } from "../../interfaces/IAuth";
+import { IField } from "../../interfaces/IField";
 
-export interface CheckboxGroupProps {
-  name: string;
-  label: string;
-  options: string[];
-  rules?: ValidationRules;
-}
-
-export const CheckboxGroup: FC<CheckboxGroupProps> = ({
-  name,
-  label,
-  options,
-}) => {
-  const {
-    register,
-    control,
-  } = useFormContext();
-
+export const CheckboxGroup: FC<IField> = ({ name, label, options }) => {
+  const { register, control } = useFormContext();
   const { ref, ...rest } = register(name);
 
   return (
@@ -33,11 +18,11 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
       <Typography variant="h5"> {label} </Typography>
       <Controller
         control={control}
-        rules={{required: true}}
+        rules={{ required: true }}
         name={name}
         render={({ field }) => (
           <FormGroup>
-            {options.map((opt, index) => (
+            {options?.map((opt, index) => (
               <FormControlLabel
                 key={index}
                 control={<Checkbox {...rest} inputRef={ref} />}

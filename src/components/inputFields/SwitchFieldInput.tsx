@@ -1,26 +1,10 @@
 import { FormControlLabel, Switch } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { ValidationRules } from "../../interfaces/IAuth";
+import { IField } from "../../interfaces/IField";
 
-export interface SwitchFieldInputProps {
-  name: string;
-  options: string[];
-  label: string;
-  errorMessage?: string;
-  rules?: ValidationRules;
-}
-
-export const SwitchFieldInput: FC<SwitchFieldInputProps> = ({
-  name,
-  label,
-  options,
-  rules,
-}) => {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
+export const SwitchFieldInput: FC<IField> = ({ name, options, rules }) => {
+  const { control } = useFormContext();
 
   return (
     <Controller
@@ -29,7 +13,7 @@ export const SwitchFieldInput: FC<SwitchFieldInputProps> = ({
       rules={rules}
       render={({ field }) => (
         <>
-          {options.map((option, index) => (
+          {options?.map((option, index) => (
             <FormControlLabel
               key={index}
               control={

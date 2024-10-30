@@ -10,6 +10,16 @@ export const loginValidation = {
     return true;
   },
 };
+export const emailValidation = {
+  required: REQUIRED_FIELD,
+  validate: (value: string) => {
+    if (!value.match(/^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/)) {
+      return "Почта не корректна";
+    }
+
+    return true;
+  },
+};
 
 export const passwordValidation = {
   required: REQUIRED_FIELD,

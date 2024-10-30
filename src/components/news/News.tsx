@@ -1,5 +1,5 @@
 import { Box, Container } from "@mui/material";
-import NewsCard from "./NewsCard";
+import NewsCard from "./NewsCard/NewsCard";
 
 export default function News() {
   return (

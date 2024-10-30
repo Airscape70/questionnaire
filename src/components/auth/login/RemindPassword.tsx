@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { StyledContainer } from "../authStyles";
+import { StyledContainer } from "../authStyles/authStyles";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { CSSProperties } from "styled-components";
 import { TextFieldInput } from "../../inputFields/TextFieldInput";

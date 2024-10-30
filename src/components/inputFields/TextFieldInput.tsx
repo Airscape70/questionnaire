@@ -1,21 +1,10 @@
 import { TextField } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
+import { IField } from "../../interfaces/IField";
 
-type ValidationRules = {
-  required: string;
-  validate: (value: string) => boolean | string;
-};
 
-export interface TextFieldInputProps {
-  name: string;
-  label: string;
-  errorMessage?: string;
-  type: "text" | "password" | "email" | "tel";
-  rules?: ValidationRules;
-}
-
-export const TextFieldInput: FC<TextFieldInputProps> = ({
+export const TextFieldInput: FC<IField> = ({
   name,
   label,
   type,

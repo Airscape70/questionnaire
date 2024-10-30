@@ -1,8 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { StyledContainer, StyledLoginBox } from "../authStyles";
+import { formStyle, StyledContainer, StyledLoginBox } from "../authStyles/authStyles";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { CSSProperties } from "styled-components";
 import { TextFieldInput } from "../../inputFields/TextFieldInput";
 import {
   loginValidation,
@@ -12,11 +11,9 @@ import { ILogin } from "../../../interfaces/IAuth";
 import { login } from "../../../api/localApi";
 import { useState } from "react";
 
-const linkStyle: CSSProperties = {
-  maxWidth: "360px",
-};
 
 export default function Login() {
+
   const navigate = useNavigate()
   const [remindBtn, setRemindLink] = useState<boolean>(false);
   const methods = useForm<ILogin>({ mode: "onBlur" });
@@ -41,7 +38,7 @@ export default function Login() {
       </Typography>
 
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)} style={linkStyle}>
+        <form onSubmit={methods.handleSubmit(onSubmit)} style={formStyle}>
           <TextFieldInput
             name="login"
             label="Логин"

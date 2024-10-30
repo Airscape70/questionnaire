@@ -1,17 +1,11 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { ValidationRules } from "../../interfaces/IAuth";
+import { IField } from "../../interfaces/IField";
 
-export interface TextFieldInputProps {
-  name: string;
-  options: string[];
-  label: string;
-  errorMessage?: string;
-  rules?: ValidationRules;
-}
 
-export const SelectFieldInput: FC<TextFieldInputProps> = ({
+
+export const SelectFieldInput: FC<IField> = ({
   name,
   options,
   label,
@@ -40,7 +34,7 @@ export const SelectFieldInput: FC<TextFieldInputProps> = ({
             onChange={(e) => field.onChange(e)}
             error={!!errors[name]?.message}
           >
-            {options.map((option, index) => (
+            {options?.map((option, index) => (
               <MenuItem key={index} value={option}>
                 {option}
               </MenuItem>

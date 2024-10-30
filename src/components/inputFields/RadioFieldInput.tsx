@@ -7,22 +7,10 @@ import {
   Typography,
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-import { ValidationRules } from "../../interfaces/IAuth";
 import { FC } from "react";
+import { IField } from "../../interfaces/IField";
 
-export interface RadioFieldInputProps {
-  name: string;
-  label: string;
-  options: string[];
-  errorMessage?: string;
-  rules?: ValidationRules;
-}
-
-export const RadioFieldInput: FC<RadioFieldInputProps> = ({
-  name,
-  label,
-  options,
-}) => {
+export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
   const { control } = useFormContext();
 
   return (
@@ -35,7 +23,7 @@ export const RadioFieldInput: FC<RadioFieldInputProps> = ({
           <FormControl>
             <Typography variant="h5"> {label}</Typography>
             <RadioGroup name={name}>
-              {options.map((option, index) => (
+              {options?.map((option, index) => (
                 <FormControlLabel
                   key={index}
                   value={option}
