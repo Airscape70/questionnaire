@@ -1,6 +1,10 @@
 import { Button, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { formStyle, StyledContainer, StyledLoginBox } from "../authStyles/authStyles";
+import {
+  formStyle,
+  StyledContainer,
+  StyledLoginBox,
+} from "../authStyles/authStyles";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { TextFieldInput } from "../../inputFields/TextFieldInput";
 import {
@@ -9,26 +13,28 @@ import {
 } from "../../../constants/validations";
 import { ILogin } from "../../../interfaces/IAuth";
 import { login } from "../../../api/localApi";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { useStoreUser } from "../../../store/store";
 
 export default function Login() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [remindBtn, setRemindLink] = useState<boolean>(false);
   const methods = useForm<ILogin>({ mode: "onBlur" });
+  const getUsers = useStoreUser((state) => state.getUsers);
+  const users = useStoreUser((state) => state.users);
 
-  const  onSubmit: SubmitHandler<ILogin> = (data) => {
-    const user = login(data);
-    methods.reset();
+  const onSubmit: SubmitHandler<ILogin> = (data) => {
+    getUsers()
+    const user = users?.find(
+      (u) => u.login === data.login && u.password === data.password
+    );
     if (!user) {
       alert("Не правильный логин или пароль");
       setRemindLink(true);
     } else {
-      alert(`Привет, ${user.fullName}!`)
-      navigate('/')
+      alert(`Привет, ${user.fullName}!`);
+      navigate("/");
     }
-
   };
 
   return (
@@ -65,7 +71,7 @@ export default function Login() {
         </form>
       </FormProvider>
 
-      { remindBtn && <Link to="/auth/reminder">Забыли пароль?</Link> }
+      {remindBtn && <Link to="/auth/reminder">Забыли пароль?</Link>}
 
       <StyledLoginBox>
         <Typography component="span" padding={0}>

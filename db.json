@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "email": "sdflkndfs@mail.ru",
+      "password": "$2a$10$ChfS29LfcUUCyoeKYd075ua5342zfEGM/53ISzKml3Bh/sK.YGW5m",
+      "login": "Airscape",
+      "phoneNumber": "+79234573227",
+      "fullName": "Истомин Владислав Алекс",
+      "gender": "Мужской",
+      "id": 1
+    },
+    {
+      "email": "dfg@dfa.com",
+      "password": "$2a$10$3Q5.ndmE6zT.oCyIzTrkWu9jopCrl0koovEz3W6b39Xdaxbp..kCa",
+      "login": "Ksen",
+      "phoneNumber": "+79131015709",
+      "fullName": "Будилова Ксения Батьковна",
+      "gender": "Женский",
+      "id": 2
+    },
+    {
+      "email": "aist@mail.ru",
+      "password": "$2a$10$kz/EeVrvSR7wlT393lWfSe/xmAgCM29CHBgtv/VqmhT5fXus2rMvq",
+      "login": "Aist",
+      "phoneNumber": "+79234573227",
+      "fullName": "Истомин Выадлыва",
+      "gender": "Мужской",
+      "id": 3
+    },
+    {
+      "email": "mail@mail.ru",
+      "password": "$2a$10$sNLoVT2MGRzrdHA8ozljAu4RztuScp80Wrg5YQDA3YpgyCEsrlB6m",
+      "login": "Airscape",
+      "phoneNumber": "+79234573227",
+      "fullName": "Истомин Владислав Александрович",
+      "gender": "Мужской",
+      "id": 4
+    },
+    {
+      "email": "asdsd@asda.com",
+      "password": "$2a$10$7aGqUuy1m9COpdLNYrAvWuXKIZvJbooXYrEo6RGGm/Wv29FteqxeO",
+      "login": "asdasd",
+      "phoneNumber": "+79234676677",
+      "fullName": "Ииииииии ВВВВВвввв",
+      "gender": "Мужской",
+      "id": 5
+    }
+  ]
+}

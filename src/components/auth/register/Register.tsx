@@ -13,18 +13,20 @@ import {
 import { TextFieldInput } from "../../inputFields/TextFieldInput";
 import { SelectFieldInput } from "../../inputFields/SelectFieldInput";
 import { IUser } from "../../../interfaces/IAuth";
-import { register } from "../../../api/localApi";
+import { useStoreUser } from "../../../store/store";
 
 
 export default function Register() {
 
   const navigate = useNavigate();
   const methods = useForm<IUser>({ mode: "onBlur" });
+  const postUser = useStoreUser((state) => state.postUser)
+
+
 
   const onSubmit: SubmitHandler<IUser> = (data) => {
-    register(data)
-    navigate("/auth/login");
-    methods.reset();
+    postUser(data)
+    navigate("/auth/login")
   };
 
   return (
