@@ -26,15 +26,6 @@
       "fullName": "Новиков Григорий Султанович",
       "gender": "Мужской",
       "id": 3
-    },
-    {
-      "email": "sandra@gmail.com",
-      "password": "$2a$10$h45zDsMUsLKGJhxGA6kqP.d/y6MU3wCmobolHcLUEDwHhVctHUKly",
-      "login": "Sandra",
-      "phoneNumber": "+78888888888",
-      "fullName": "Суворова Алина Генадьевна",
-      "gender": "Женский",
-      "id": 4
     }
   ],
 
@@ -57,8 +48,8 @@
     }
   ],
 
-  "questionnaire": [
-    {
+  "questions": {
+    "hobby": {
       "name": "hobby",
       "label": "Твое хобби",
       "type": "checkbox",
@@ -85,35 +76,14 @@
         }
       ]
     },
-    {
-      "name": "weather",
-      "label": "Любимое время года",
-      "type": "radio",
-      "options": [
-        {
-          "label": "Зима",
-          "value": "Зима"
-        },
-        {
-          "label": "Весна",
-          "value": "Весна"
-        },
-        {
-          "label": "Лето",
-          "value": "Лето"
-        },
-        {
-          "label": "Весна",
-          "value": "Весна"
-        }
-      ]
-    },
-    {
+
+    "dream": {
       "name": "dream",
       "label": "Твоя мечта",
       "type": "text"
     },
-    {
+
+    "music": {
       "name": "music",
       "label": "Любимый жанр музыки",
       "type": "select",
@@ -136,41 +106,78 @@
         }
       ]
     },
-    {
+
+    "weather": {
+      "name": "weather",
+      "label": "Любимое время года",
+      "type": "radio",
+      "options": [
+        {
+          "label": "Зима",
+          "value": "Зима"
+        },
+        {
+          "label": "Весна",
+          "value": "Весна"
+        },
+        {
+          "label": "Лето",
+          "value": "Лето"
+        },
+        {
+          "label": "Весна",
+          "value": "Весна"
+        }
+      ]
+    },
+
+    "beer": {
       "name": "beer",
       "label": "Пиво",
       "type": "switch"
     },
-    {
+
+    "favoritesJenres": {
       "name": "favoriteJenres",
       "label": "Топ жанров фильмов",
       "type": "DND",
       "options": [
         {
+          "id": 1,
           "label": "Ужасы",
           "value": "Ужасы"
         },
         {
+          "id": 2,
           "label": "ROCK",
           "value": "Комедия"
         },
         {
+          "id": 3,
           "label": "Драмма",
           "value": "Драмма"
         },
         {
+          "id": 4,
           "label": "Мультфильм",
           "value": "Мультфильм"
         },
         {
+          "id": 5,
           "label": "Боевик",
           "value": "Боевик"
         },
         {
+          "id": 6,
           "label": "Триллер",
           "value": "Триллер"
         }
       ]
+    },
+
+    "userFile": {
+      "name": "userFile",
+      "label": "Загрузить"
     }
-  ]
+  }
 }

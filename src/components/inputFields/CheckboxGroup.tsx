@@ -26,8 +26,8 @@ export const CheckboxGroup: FC<IField> = ({ name, label, options }) => {
               <FormControlLabel
                 key={index}
                 control={<Checkbox {...rest} inputRef={ref} />}
-                value={opt}
-                label={opt}
+                value={opt.value}
+                label={opt.label}
               />
             ))}
           </FormGroup>

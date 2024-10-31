@@ -2,6 +2,7 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { IField } from "../../interfaces/IField";
+import { REQUIRED_FIELD } from "../../constants/register";
 
 
 
@@ -9,7 +10,6 @@ export const SelectFieldInput: FC<IField> = ({
   name,
   options,
   label,
-  rules,
 }) => {
   const {
     control,
@@ -20,7 +20,7 @@ export const SelectFieldInput: FC<IField> = ({
     <Controller
       control={control}
       name={name}
-      rules={rules}
+      rules={{required: REQUIRED_FIELD}}
       render={({ field }) => (
         <FormControl fullWidth sx={{ mt: 2 }}>
           <InputLabel id={name} size="small">
@@ -35,8 +35,8 @@ export const SelectFieldInput: FC<IField> = ({
             error={!!errors[name]?.message}
           >
             {options?.map((option, index) => (
-              <MenuItem key={index} value={option}>
-                {option}
+              <MenuItem key={index} value={option.value}>
+                {option.label}
               </MenuItem>
             ))}
           </Select>

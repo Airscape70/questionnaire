@@ -1,17 +1,16 @@
-import { ValidationRules } from "./IAuth";
-
-export interface IJenre {
-  id: number | string;
-  title: string;
-}
-
 export interface IField {
   name: string;
   label: string;
-  type?: "text" | "password" | "email" | "tel";
-  options?: string[]
+  type?: string;
+  options?: {label: string, value: string}[]
+  pattern?: RegExp;
   errorMessage?: string;
-  rules?: ValidationRules;
+}
+
+export interface IJenre {
+  id: number
+  label:  string;
+  value: string;
 }
 
 export interface IDnd {

@@ -3,9 +3,8 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { IJenre } from "../../../interfaces/IField";
 
-
 export default function JenreCard({ jenre }: { jenre: IJenre }) {
-  const { id, title } = { ...jenre };
+  const { id, label, value } = { ...jenre };
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
 
@@ -26,7 +25,7 @@ export default function JenreCard({ jenre }: { jenre: IJenre }) {
 
   return (
     <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
-      <Typography variant="h6">{title}</Typography>
+      <Typography variant="h6">{label}</Typography>
     </div>
   );
 }

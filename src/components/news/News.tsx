@@ -1,5 +1,5 @@
 import { Box, Container } from "@mui/material";
-import NewsCard from "./NewsCard/NewsCard";
+import NewsCard from "./newsCard/NewsCard";
 import { useStoreUser } from "../../store/store";
 
 

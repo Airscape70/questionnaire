@@ -64,7 +64,7 @@ export const DndColumn: FC<IDnd> = ({ name, label, options }) => {
           items={jenres}
           strategy={verticalListSortingStrategy}
         >
-          {jenres.map((jenre) => (
+          {jenres!.map((jenre) => (
             <JenreCard key={jenre.id} jenre={jenre} />
           ))}
         </SortableContext>

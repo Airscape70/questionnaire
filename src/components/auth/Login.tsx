@@ -1,20 +1,20 @@
 import { Button, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  formStyle,
-  StyledBox,
-  StyledContainer,
-} from "../authStyles/authStyles";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { TextFieldInput } from "../../inputFields/TextFieldInput";
-import { ILogin } from "../../../interfaces/IAuth";
 import { useEffect, useState } from "react";
-import { useStoreUser } from "../../../store/store";
-import { emailValidation, passwordValidation } from "../validations";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { ILogin } from "../../interfaces/IAuth";
+import { REGISTER_TEXT_FIELDS } from "../../constants/register";
+import { useStoreUser } from "../../store/store";
+import { formStyle, StyledBox, StyledContainer } from "./authStyles/authStyles";
+import { TextFieldInput } from "../inputFields/TextFieldInput";
+
 
 export default function Login() {
   const [remindBtn, setRemindLink] = useState<boolean>(false);
   const methods = useForm<ILogin>({ mode: "onBlur" });
+  const loginFields = REGISTER_TEXT_FIELDS.filter(
+    (f) => f.name === "email" || f.name === "password"
+  );
 
   const login = useStoreUser((state) => state.login);
   const getUsers = useStoreUser((state) => state.getUsers);
@@ -22,7 +22,7 @@ export default function Login() {
 
   const onSubmit: SubmitHandler<ILogin> = async (data) => {
     login(data);
-    setRemindLink(true)
+    setRemindLink(true);
   };
 
   useEffect(() => {
@@ -37,19 +37,16 @@ export default function Login() {
 
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)} style={formStyle}>
-          <TextFieldInput
-            name="email"
-            label="Почта"
-            type="email"
-            rules={emailValidation}
-          />
-
-          <TextFieldInput
-            name="password"
-            label="Пароль"
-            type="password"
-            rules={passwordValidation}
-          />
+          {loginFields.map((f) => (
+            <TextFieldInput
+              key={f.name}
+              name={f.name}
+              label={f.label}
+              type={f.type}
+              pattern={f.pattern}
+              errorMessage={f.errorMessage}
+            />
+          ))}
 
           <Button
             type="submit"

@@ -27,8 +27,10 @@ interface IStoreUser {
   };
   users?: IUser[];
   news?: INews[];
+  questions?: any;
   getUsers: () => void;
   getNews: (token: string) => void;
+  getQuetions: () => void;
   postUser: (data: IUser) => void;
   login: (login: ILogin) => void;
   logout: () => void;
@@ -44,6 +46,12 @@ export const useStoreUser = create<IStoreUser>()(
           return instance
             .get("users")
             .then((response) => set({ users: response.data }))
+            .catch((error) => consoleError(error));
+        },
+        getQuetions: async () => {
+          return instance
+            .get("questions")
+            .then((response) => set({ questions: response.data }))
             .catch((error) => consoleError(error));
         },
 

@@ -9,6 +9,8 @@ import {
 import { Controller, useFormContext } from "react-hook-form";
 import { FC } from "react";
 import { IField } from "../../interfaces/IField";
+import { REQUIRED_FIELD } from "../../constants/register";
+
 
 export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
   const { control } = useFormContext();
@@ -17,7 +19,7 @@ export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
     <Controller
       control={control}
       name={name}
-      rules={{ required: "Обязательно для заполнения!" }}
+      rules={{ required: REQUIRED_FIELD }}
       render={({ field }) => (
         <Box sx={{ border: "1px solid black", padding: "20px" }}>
           <FormControl>
@@ -26,9 +28,10 @@ export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
               {options?.map((option, index) => (
                 <FormControlLabel
                   key={index}
-                  value={option}
+                  value={option.value}
                   control={<Radio onChange={(e) => field.onChange(e)} />}
-                  label={option}
+                  label={option.label}
+
                 />
               ))}
             </RadioGroup>
