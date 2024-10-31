@@ -1,19 +1,13 @@
 import { Button, Typography } from "@mui/material";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { formStyle, StyledContainer, StyledRegisterBox } from "../authStyles/authStyles";
-import {
-  emailValidation,
-  fullNameValidation,
-  loginValidation,
-  passwordValidation,
-  phoneNumberValidation,
-  selectValidation,
-} from "../../../constants/validations";
+import { formStyle, StyledBox, StyledContainer } from "../authStyles/authStyles";
 import { TextFieldInput } from "../../inputFields/TextFieldInput";
 import { SelectFieldInput } from "../../inputFields/SelectFieldInput";
 import { IUser } from "../../../interfaces/IAuth";
 import { useStoreUser } from "../../../store/store";
+import { emailValidation, fullNameValidation, loginValidation, passwordValidation, phoneNumberValidation, selectValidation } from "../validations";
+
 
 
 export default function Register() {
@@ -23,11 +17,11 @@ export default function Register() {
   const postUser = useStoreUser((state) => state.postUser)
 
 
-
   const onSubmit: SubmitHandler<IUser> = (data) => {
     postUser(data)
-    navigate("/auth/login")
+    navigate("/home")
   };
+
 
   return (
     <StyledContainer>
@@ -92,17 +86,19 @@ export default function Register() {
         </form>
       </FormProvider>
 
-      <StyledRegisterBox>
+      <StyledBox>
 
         <Typography component="span" padding={0}>
           Уже есть аккаунт?
         </Typography>
 
         <Typography component="span" padding={0}>
-          <Link to="/auth/login">Войти</Link>
+          <Link to="/login">Войти</Link>
         </Typography>
 
-      </StyledRegisterBox>
+      </StyledBox>
+
     </StyledContainer>
+
   );
 }

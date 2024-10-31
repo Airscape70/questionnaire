@@ -21,6 +21,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "axios": "^1.7.7",
+    "immer": "^10.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
@@ -37,7 +38,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server-auth -w db.json -p 3001"
+    "server": "json-server-auth -w db.json -r routes.json -p 3001"
   },
   "eslintConfig": {
     "extends": [

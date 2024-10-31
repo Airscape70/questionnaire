@@ -4,4 +4,6 @@ export interface IQuestionnare {
   dream: string;
   music: string;
   beer: boolean;
+  favoriteJenres: {id: number, title: string} []
+  userFile: string
 }

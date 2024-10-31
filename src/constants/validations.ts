@@ -1,66 +1,34 @@
 export const REQUIRED_FIELD = "Обязательно для заполнения!";
 
-export const loginValidation = {
-  required: REQUIRED_FIELD,
-  validate: (value: string) => {
-    if (!value.match(/^[a-zA-Z0-9_.-]{3,20}$/)) {
-      return "Логин должен содержать только буквы, цифры, символы _.- и быть длиной от 3 до 20 символов.";
-    }
-
-    return true;
+export const VALIDATION = [
+  {
+    type: "login",
+    validate: /^[a-zA-Z0-9_.-]{3,20}$/,
+    error: "Логин должен содержать только буквы, цифры, символы _.- и быть длиной от 3 до 20 символов",
   },
-};
-export const emailValidation = {
-  required: REQUIRED_FIELD,
-  validate: (value: string) => {
-    if (!value.match(/^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/)) {
-      return "Почта не корректна";
-    }
-
-    return true;
+  {
+    type: "email",
+    validate: /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
+    error: "Почта не корректна",
   },
-};
-
-export const passwordValidation = {
-  required: REQUIRED_FIELD,
-  validate: (value: string) => {
-    if (!value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)) {
-      return "Пароль должен быть не менее 8 символов и содержать минимум одну цифру, одну заглавную и одну строчную букву'";
-    }
-
-    return true;
+  {
+    type: "password",
+    validate: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+    error: "Пароль должен быть не менее 8 символов и содержать минимум одну цифру, одну заглавную и одну строчную букву",
   },
-};
-
-export const fullNameValidation = {
-  required: REQUIRED_FIELD,
-  validate: (value: string) => {
-    if (value.match(/[a-zA-z]/)) {
-      return "ФИО не может содержать английские буквы";
-    } else if (value.length < 10) {
-      return "ФИО не может быть меньше 10 букв";
-    }
-
-    return true;
+  {
+    type: "fullName",
+    validate: /[a-zA-z]/,
+    error: "ФИО не может содержать английские буквы",
   },
-};
-
-export const phoneNumberValidation = {
-  required: REQUIRED_FIELD,
-  validate: (value: string) => {
-    if (!value.match(/^\+7\d{3}\d{7}$/)) {
-      return "Номер телефона должен быть в формате +7 (XXX) XXX-XX-XX";
-    }
-    return true;
+  {
+    type: "phoneNumber",
+    validate: /^\+7\d{3}\d{7}$/,
+    error: "Номер телефона должен быть в формате +7 (XXX) XXX-XX-XX",
   },
-};
+  {
+    type: "select",
+    error: "Нужно выбрать из списка",
+  },
 
-export const selectValidation = {
-  required: REQUIRED_FIELD,
-  validate: (value: string) => {
-    if (!value) {
-      return "Нужно выбрать из списка";
-    }
-    return true
-  }
-};
+]

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import styled, { CSSProperties } from "styled-components";
 
 
@@ -7,7 +7,7 @@ export const formStyle: CSSProperties = {
 };
 
 
-export const StyledContainer = styled(Box)({
+export const StyledContainer = styled(Container)({
   width: "50vw",
   height: "100vh",
   backgroundColor: "#fff",
@@ -19,16 +19,7 @@ export const StyledContainer = styled(Box)({
   textAlign: "center",
 });
 
-export const StyledLoginBox = styled(Box)({
-  width: "360px",
-  display: "flex",
-  gap: 2,
-  fontSize: 8,
-  margin: "10px 0 0",
-  justifyContent: "space-between",
-});
-
-export const StyledRegisterBox = styled(Box)({
+export const StyledBox = styled(Box)({
   width: "360px",
   display: "flex",
   gap: 2,

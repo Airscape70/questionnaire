@@ -1,49 +1,176 @@
 {
   "users": [
     {
-      "email": "sdflkndfs@mail.ru",
-      "password": "$2a$10$ChfS29LfcUUCyoeKYd075ua5342zfEGM/53ISzKml3Bh/sK.YGW5m",
-      "login": "Airscape",
-      "phoneNumber": "+79234573227",
-      "fullName": "Истомин Владислав Алекс",
-      "gender": "Мужской",
-      "id": 1
-    },
-    {
-      "email": "dfg@dfa.com",
-      "password": "$2a$10$3Q5.ndmE6zT.oCyIzTrkWu9jopCrl0koovEz3W6b39Xdaxbp..kCa",
-      "login": "Ksen",
-      "phoneNumber": "+79131015709",
-      "fullName": "Будилова Ксения Батьковна",
-      "gender": "Женский",
-      "id": 2
-    },
-    {
-      "email": "aist@mail.ru",
-      "password": "$2a$10$kz/EeVrvSR7wlT393lWfSe/xmAgCM29CHBgtv/VqmhT5fXus2rMvq",
-      "login": "Aist",
-      "phoneNumber": "+79234573227",
-      "fullName": "Истомин Выадлыва",
-      "gender": "Мужской",
-      "id": 3
-    },
-    {
-      "email": "mail@mail.ru",
-      "password": "$2a$10$sNLoVT2MGRzrdHA8ozljAu4RztuScp80Wrg5YQDA3YpgyCEsrlB6m",
+      "email": "air@mail.ru",
+      "password": "$2a$10$hgJEvZrowGjfgj16Q8NPSeriveaJLPX7zVzNp1Ik36TZWhBmI4bbO",
       "login": "Airscape",
       "phoneNumber": "+79234573227",
       "fullName": "Истомин Владислав Александрович",
       "gender": "Мужской",
-      "id": 4
+      "id": 1
     },
     {
-      "email": "asdsd@asda.com",
-      "password": "$2a$10$7aGqUuy1m9COpdLNYrAvWuXKIZvJbooXYrEo6RGGm/Wv29FteqxeO",
-      "login": "asdasd",
-      "phoneNumber": "+79234676677",
-      "fullName": "Ииииииии ВВВВВвввв",
+      "email": "lola@mail.ru",
+      "password": "$2a$10$HWgd65vkRrb/h.GdkLikJOAsFgne0JNY6ifg2NLvBThz6JdO9Fcv.",
+      "login": "lola",
+      "phoneNumber": "+78887776655",
+      "fullName": "Лолова Лола Лоловна",
+      "gender": "Женский",
+      "id": 2
+    },
+    {
+      "email": "gg@yandex.ru",
+      "password": "$2a$10$P2lAxUmbkJfUDn6UotxaMOxeUf76CaV.NmsE7p3/NwbACt0bC9PaS",
+      "login": "Grisha",
+      "phoneNumber": "+71111111111",
+      "fullName": "Новиков Григорий Султанович",
       "gender": "Мужской",
-      "id": 5
+      "id": 3
+    },
+    {
+      "email": "sandra@gmail.com",
+      "password": "$2a$10$h45zDsMUsLKGJhxGA6kqP.d/y6MU3wCmobolHcLUEDwHhVctHUKly",
+      "login": "Sandra",
+      "phoneNumber": "+78888888888",
+      "fullName": "Суворова Алина Генадьевна",
+      "gender": "Женский",
+      "id": 4
+    }
+  ],
+
+  "news": [
+    {
+      "id": "1",
+      "img": "https://avatars.dzeninfra.ru/get-ynews/271828/f4c14f92efdf45f54d6d5902a47bdbfd/800x400",
+      "title": "В России с 1 ноября 2024 года вступит в силу несколько новых законов",
+      "subheader": "32 минуты назад",
+      "subcontent": "В России с 1 ноября 2024 года вступит в силу несколько новых законов",
+      "maincontent": "С 1 ноября в России вступают в силу ряд законов, касающиеся блогеров, учителей, участников спецоперации и других сфер. С 1 ноября блогеры, имеющие более 10 тысяч подписчиков, будут обязаны предоставлять данные в Роскомнадзор. С ноября российские банки больше не смогут взимать комиссию за переводы в пользу государства, совершенные через Систему быстрых платежей (СБП). Заработает чат-бот для учителей «Помощник Рособрнадзора»"
+    },
+    {
+      "id": "2",
+      "img": "https://avatars.dzeninfra.ru/get-ynews/271828/218bdb2c6199e3d103e4f0d575814b34/800x400",
+      "title": "УАЗ «Патриот» получит новый дизайн и мотор в 2025 году",
+      "subheader": "Октябрь 25, 2024",
+      "subcontent": "В следующем году ждём обновлённый уазовский «Патриот»",
+      "maincontent": "Как пишут «Известия» , Ульяновский автозавод представит обновленный «Патриот» в IV квартале 2025 года. Компанию агрегату составитшестиступенчатая «механика» производства Заволжского моторного завода и электромеханическая раздатка.Motor В салоне нового «Патриота» разместятся переделанные передняя панель и центральный тоннель, а также более компактный по диаметру руль с с утолщениями в местах хвата и подушкой безопасности.CarsWeek.ru"
+    }
+  ],
+
+  "questionnaire": [
+    {
+      "name": "hobby",
+      "label": "Твое хобби",
+      "type": "checkbox",
+      "options": [
+        {
+          "label": "Рисование",
+          "value": "Рисование"
+        },
+        {
+          "label": "Танцы",
+          "value": "Танцы"
+        },
+        {
+          "label": "Прогулка",
+          "value": "Прогулка"
+        },
+        {
+          "label": "Настольные игры",
+          "value": "Настольные игры"
+        },
+        {
+          "label": "Спорт",
+          "value": "Спорт"
+        }
+      ]
+    },
+    {
+      "name": "weather",
+      "label": "Любимое время года",
+      "type": "radio",
+      "options": [
+        {
+          "label": "Зима",
+          "value": "Зима"
+        },
+        {
+          "label": "Весна",
+          "value": "Весна"
+        },
+        {
+          "label": "Лето",
+          "value": "Лето"
+        },
+        {
+          "label": "Весна",
+          "value": "Весна"
+        }
+      ]
+    },
+    {
+      "name": "dream",
+      "label": "Твоя мечта",
+      "type": "text"
+    },
+    {
+      "name": "music",
+      "label": "Любимый жанр музыки",
+      "type": "select",
+      "options": [
+        {
+          "label": "HIP-HOP",
+          "value": "HIP-HOP"
+        },
+        {
+          "label": "ROCK",
+          "value": "ROCK"
+        },
+        {
+          "label": "POP",
+          "value": "POP"
+        },
+        {
+          "label": "HOUSE",
+          "value": "HOUSE"
+        }
+      ]
+    },
+    {
+      "name": "beer",
+      "label": "Пиво",
+      "type": "switch"
+    },
+    {
+      "name": "favoriteJenres",
+      "label": "Топ жанров фильмов",
+      "type": "DND",
+      "options": [
+        {
+          "label": "Ужасы",
+          "value": "Ужасы"
+        },
+        {
+          "label": "ROCK",
+          "value": "Комедия"
+        },
+        {
+          "label": "Драмма",
+          "value": "Драмма"
+        },
+        {
+          "label": "Мультфильм",
+          "value": "Мультфильм"
+        },
+        {
+          "label": "Боевик",
+          "value": "Боевик"
+        },
+        {
+          "label": "Триллер",
+          "value": "Триллер"
+        }
+      ]
     }
   ]
 }

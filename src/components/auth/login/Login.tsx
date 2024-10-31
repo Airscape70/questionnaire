@@ -2,40 +2,32 @@ import { Button, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import {
   formStyle,
+  StyledBox,
   StyledContainer,
-  StyledLoginBox,
 } from "../authStyles/authStyles";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { TextFieldInput } from "../../inputFields/TextFieldInput";
-import {
-  loginValidation,
-  passwordValidation,
-} from "../../../constants/validations";
 import { ILogin } from "../../../interfaces/IAuth";
-import { login } from "../../../api/localApi";
 import { useEffect, useState } from "react";
 import { useStoreUser } from "../../../store/store";
+import { emailValidation, passwordValidation } from "../validations";
 
 export default function Login() {
-  const navigate = useNavigate();
   const [remindBtn, setRemindLink] = useState<boolean>(false);
   const methods = useForm<ILogin>({ mode: "onBlur" });
+
+  const login = useStoreUser((state) => state.login);
   const getUsers = useStoreUser((state) => state.getUsers);
   const users = useStoreUser((state) => state.users);
 
-  const onSubmit: SubmitHandler<ILogin> = (data) => {
-    getUsers()
-    const user = users?.find(
-      (u) => u.login === data.login && u.password === data.password
-    );
-    if (!user) {
-      alert("Не правильный логин или пароль");
-      setRemindLink(true);
-    } else {
-      alert(`Привет, ${user.fullName}!`);
-      navigate("/");
-    }
+  const onSubmit: SubmitHandler<ILogin> = async (data) => {
+    login(data);
+    setRemindLink(true)
   };
+
+  useEffect(() => {
+    getUsers();
+  }, [getUsers]);
 
   return (
     <StyledContainer>
@@ -46,10 +38,10 @@ export default function Login() {
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)} style={formStyle}>
           <TextFieldInput
-            name="login"
-            label="Логин"
-            type="text"
-            rules={loginValidation}
+            name="email"
+            label="Почта"
+            type="email"
+            rules={emailValidation}
           />
 
           <TextFieldInput
@@ -71,17 +63,20 @@ export default function Login() {
         </form>
       </FormProvider>
 
-      {remindBtn && <Link to="/auth/reminder">Забыли пароль?</Link>}
+      {remindBtn && <Link to="/reminder">Забыли пароль?</Link>}
 
-      <StyledLoginBox>
+      <StyledBox>
         <Typography component="span" padding={0}>
           Нет аккаунта?
         </Typography>
 
         <Typography component="span" padding={0}>
-          <Link to="/auth/register">Зарегистрироваться</Link>
+          <Link to="/register">Зарегистрироваться</Link>
         </Typography>
-      </StyledLoginBox>
+      </StyledBox>
+      <Typography component="div">
+        {users?.length} зарегистрированных пользователей
+      </Typography>
     </StyledContainer>
   );
 }

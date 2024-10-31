@@ -14,6 +14,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { INews } from "../../../interfaces/INews";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -43,7 +44,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-export default function NewsCard() {
+export default function NewsCard({ info }: { info: INews }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -55,35 +56,41 @@ export default function NewsCard() {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            №1
+            №{info.id}
           </Avatar>
         }
+
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
-        title="УАЗ «Патриот» получит новый дизайн и мотор в 2025 году"
-        subheader="Октябрь 25, 2024"
+
+        title={info.title}
+        subheader={info.subheader}
       />
       <CardMedia
         component="img"
         height="400"
-        image="https://avatars.dzeninfra.ru/get-ynews/271828/218bdb2c6199e3d103e4f0d575814b34/800x400"
-        alt="UAZ"
+        image={info.img}
+        alt={info.title}
       />
+
       <CardContent>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          В следующем году ждём обновлённый уазовский «Патриот»
+          {info.subcontent}
         </Typography>
       </CardContent>
+
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
+
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+        
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -93,17 +100,10 @@ export default function NewsCard() {
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography sx={{ marginBottom: 2 }}>
-            Как пишут «Известия» , Ульяновский автозавод представит обновленный
-            «Патриот» в IV квартале 2025 года. Компанию агрегату составит
-            шестиступенчатая «механика» производства Заволжского моторного
-            завода и электромеханическая раздатка.Motor В салоне нового
-            «Патриота» разместятся переделанные передняя панель и центральный
-            тоннель, а также более компактный по диаметру руль с с утолщениями в
-            местах хвата и подушкой безопасности.CarsWeek.ru
-          </Typography>
+          <Typography sx={{ marginBottom: 2 }}>{info.maincontent}</Typography>
         </CardContent>
       </Collapse>
     </Card>
