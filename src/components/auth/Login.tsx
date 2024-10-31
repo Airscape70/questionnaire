@@ -8,7 +8,6 @@ import { useStoreUser } from "../../store/store";
 import { formStyle, StyledBox, StyledContainer } from "./authStyles/authStyles";
 import { TextFieldInput } from "../inputFields/TextFieldInput";
 
-
 export default function Login() {
   const [remindBtn, setRemindLink] = useState<boolean>(false);
   const methods = useForm<ILogin>({ mode: "onBlur" });
@@ -71,8 +70,8 @@ export default function Login() {
           <Link to="/register">Зарегистрироваться</Link>
         </Typography>
       </StyledBox>
-      <Typography component="div">
-        {users?.length} зарегистрированных пользователей
+      <Typography component="div" margin={5}>
+        Уже {users?.length} зарегистрированных пользователей
       </Typography>
     </StyledContainer>
   );

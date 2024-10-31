@@ -5,7 +5,6 @@ import { FC } from "react";
 import { VisuallyHiddenInput } from "./fieldStyles/fieldStyles";
 import { IField } from "../../interfaces/IField";
 
-
 export const UploadBtn: FC<IField> = ({ name, label }) => {
   const { control } = useFormContext();
 

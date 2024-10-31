@@ -4,12 +4,12 @@ import SimpleSnackbar from "../components/news/SimpleSnackbar";
 import { useStoreUser } from "../store/store";
 
 export default function HomePage() {
-
-  const logout = useStoreUser((state) => state.logout)
-
+  const logout = useStoreUser((state) => state.logout);
   return (
     <Container maxWidth="xl">
-      <Button onClick={logout}>Logout</Button>
+      <Button variant="contained" onClick={logout}>
+        Logout
+      </Button>
       <News />
       <SimpleSnackbar />
     </Container>

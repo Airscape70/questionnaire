@@ -4,7 +4,6 @@ import { Controller, useFormContext } from "react-hook-form";
 import { IField } from "../../interfaces/IField";
 import { REQUIRED_FIELD } from "../../constants/register";
 
-
 export const TextFieldInput: FC<IField> = ({
   name,
   label,

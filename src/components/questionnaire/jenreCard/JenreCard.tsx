@@ -4,7 +4,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { IJenre } from "../../../interfaces/IField";
 
 export default function JenreCard({ jenre }: { jenre: IJenre }) {
-  const { id, label, value } = { ...jenre };
+  const { id, label } = { ...jenre };
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
 

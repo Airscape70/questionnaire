@@ -11,7 +11,6 @@ import { FC } from "react";
 import { IField } from "../../interfaces/IField";
 import { REQUIRED_FIELD } from "../../constants/register";
 
-
 export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
   const { control } = useFormContext();
 
@@ -31,7 +30,6 @@ export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
                   value={option.value}
                   control={<Radio onChange={(e) => field.onChange(e)} />}
                   label={option.label}
-
                 />
               ))}
             </RadioGroup>

@@ -26,9 +26,26 @@
       "fullName": "Новиков Григорий Султанович",
       "gender": "Мужской",
       "id": 3
+    },
+    {
+      "email": "fof@fof",
+      "password": "$2a$10$UqNZsLTwut12PdS9zSerR.PLxg2WAQJpEWUVIZ7V0tDyb.Gry61I2",
+      "login": "fof",
+      "phoneNumber": "+79239239293",
+      "fullName": "Богданов Богдан Богданович",
+      "gender": "Мужской",
+      "id": 4
+    },
+    {
+      "email": "tot@tot",
+      "password": "$2a$10$QbS2a9ndKn7PDLnruk7Ej.1vvprsIoELwsBLwBoou7xZo8GtEzi.m",
+      "login": "tot",
+      "phoneNumber": "+79138126677",
+      "fullName": "Борисов Стас",
+      "gender": "Мужской",
+      "id": 5
     }
   ],
-
   "news": [
     {
       "id": "1",
@@ -47,7 +64,6 @@
       "maincontent": "Как пишут «Известия» , Ульяновский автозавод представит обновленный «Патриот» в IV квартале 2025 года. Компанию агрегату составитшестиступенчатая «механика» производства Заволжского моторного завода и электромеханическая раздатка.Motor В салоне нового «Патриота» разместятся переделанные передняя панель и центральный тоннель, а также более компактный по диаметру руль с с утолщениями в местах хвата и подушкой безопасности.CarsWeek.ru"
     }
   ],
-
   "questions": {
     "hobby": {
       "name": "hobby",
@@ -76,13 +92,11 @@
         }
       ]
     },
-
     "dream": {
       "name": "dream",
       "label": "Твоя мечта",
       "type": "text"
     },
-
     "music": {
       "name": "music",
       "label": "Любимый жанр музыки",
@@ -106,7 +120,6 @@
         }
       ]
     },
-
     "weather": {
       "name": "weather",
       "label": "Любимое время года",
@@ -125,18 +138,16 @@
           "value": "Лето"
         },
         {
-          "label": "Весна",
-          "value": "Весна"
+          "label": "Осень",
+          "value": "Осень"
         }
       ]
     },
-
     "beer": {
       "name": "beer",
       "label": "Пиво",
       "type": "switch"
     },
-
     "favoritesJenres": {
       "name": "favoriteJenres",
       "label": "Топ жанров фильмов",
@@ -174,7 +185,6 @@
         }
       ]
     },
-
     "userFile": {
       "name": "userFile",
       "label": "Загрузить"

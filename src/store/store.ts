@@ -29,9 +29,9 @@ interface IStoreUser {
   news?: INews[];
   questions?: any;
   getUsers: () => void;
+  postUser: (data: IUser) => void;
   getNews: (token: string) => void;
   getQuetions: () => void;
-  postUser: (data: IUser) => void;
   login: (login: ILogin) => void;
   logout: () => void;
   setInerests: (data: IQuestionnare) => void;
@@ -76,7 +76,7 @@ export const useStoreUser = create<IStoreUser>()(
         },
 
         logout: () => {
-          set((state) => ({ user: undefined }));
+          set({ user: undefined });
         },
 
         getNews: async (token: string) => {

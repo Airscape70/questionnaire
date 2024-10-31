@@ -6,13 +6,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 
 export default function SimpleSnackbar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(true);
-  
 
   const action = (
     <React.Fragment>
-      <Button color="secondary" size="small" onClick={() => navigate('/questionnaire')}>
+      <Button
+        color="secondary"
+        size="small"
+        onClick={() => navigate("/questionnaire")}
+      >
         Пройти
       </Button>
       <IconButton

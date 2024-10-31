@@ -14,8 +14,8 @@ export const SwitchFieldInput: FC<IField> = ({ name, label }) => {
         <>
           <FormControlLabel
             label={label}
-            control={ 
-            <Switch value={field.value} onChange={(e) => field.onChange(e)} />
+            control={
+              <Switch value={field.value} onChange={(e) => field.onChange(e)} />
             }
           />
         </>

@@ -4,13 +4,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import { IField } from "../../interfaces/IField";
 import { REQUIRED_FIELD } from "../../constants/register";
 
-
-
-export const SelectFieldInput: FC<IField> = ({
-  name,
-  options,
-  label,
-}) => {
+export const SelectFieldInput: FC<IField> = ({ name, options, label }) => {
   const {
     control,
     formState: { errors },
@@ -20,7 +14,7 @@ export const SelectFieldInput: FC<IField> = ({
     <Controller
       control={control}
       name={name}
-      rules={{required: REQUIRED_FIELD}}
+      rules={{ required: REQUIRED_FIELD }}
       render={({ field }) => (
         <FormControl fullWidth sx={{ mt: 2 }}>
           <InputLabel id={name} size="small">

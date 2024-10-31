@@ -8,7 +8,6 @@ import { REGISTER_TEXT_FIELDS } from "../../constants/register";
 import { TextFieldInput } from "../inputFields/TextFieldInput";
 import { SelectFieldInput } from "../inputFields/SelectFieldInput";
 
-
 export default function Register() {
   const navigate = useNavigate();
   const methods = useForm<IUser>({ mode: "onBlur" });

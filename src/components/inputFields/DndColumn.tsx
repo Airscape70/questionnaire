@@ -21,8 +21,6 @@ import { useFormContext } from "react-hook-form";
 import { DndBoxStyled } from "./fieldStyles/fieldStyles";
 import { IDnd, IJenre } from "../../interfaces/IField";
 
-
-
 export const DndColumn: FC<IDnd> = ({ name, label, options }) => {
   const [jenres, setJenres] = useState<IJenre[]>(options);
   const { setValue, control } = useFormContext();
