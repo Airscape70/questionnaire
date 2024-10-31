@@ -25,8 +25,7 @@ export default function Login() {
   };
 
   useEffect(() => {
-    getUsers();
-  }, [getUsers]);
+    getUsers();  }, [getUsers]);
 
   return (
     <StyledContainer>
