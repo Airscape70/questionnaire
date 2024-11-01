@@ -16,16 +16,12 @@ export default function Login() {
   );
 
   const login = useStoreUser((state) => state.login);
-  const getUsers = useStoreUser((state) => state.getUsers);
   const users = useStoreUser((state) => state.users);
 
   const onSubmit: SubmitHandler<ILogin> = async (data) => {
     login(data);
     setRemindLink(true);
   };
-
-  useEffect(() => {
-    getUsers();  }, [getUsers]);
 
   return (
     <StyledContainer>

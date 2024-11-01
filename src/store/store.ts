@@ -23,7 +23,7 @@ interface IStoreUser {
   user?: {
     token: string;
     userData: IUser;
-    interests: IQuestionnare;
+    interests?: IQuestionnare;
   };
   users?: IUser[];
   news?: INews[];
@@ -41,17 +41,16 @@ export const useStoreUser = create<IStoreUser>()(
   immer(
     persist(
       (set) => ({
-        user: undefined,
         getUsers: async () => {
           return instance
             .get("users")
-            .then((response) => set({ users: response.data }))
+            .then(({ data }) => set({ users: data }))
             .catch((error) => consoleError(error));
         },
         getQuetions: async () => {
           return instance
             .get("questions")
-            .then((response) => set({ questions: response.data }))
+            .then(({ data }) => set({ questions: data }))
             .catch((error) => consoleError(error));
         },
 
@@ -59,7 +58,7 @@ export const useStoreUser = create<IStoreUser>()(
           return instance
             .post("register", newUser)
             .then(({ data }) => {
-              set({ user: { token: data.accessToken, ...data.user } });
+              set({ user: { token: data.accessToken, userData: data.user } });
             })
             .catch((error) => consoleError(error));
         },
@@ -68,9 +67,9 @@ export const useStoreUser = create<IStoreUser>()(
           return instance
             .post("login", login)
             .then(({ data }) => {
-              set((state) => ({
-                user: { ...state.user, token: data.accessToken },
-              }));
+              set({
+                user: { token: data.accessToken, userData: data.user },
+              });
             })
             .catch((error) => consoleError(error));
         },
