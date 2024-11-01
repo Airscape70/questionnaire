@@ -42,7 +42,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function NewsCard({ info }: { info: INews }) {
-  const [expanded, setExpanded] = React.useState(true);
+  const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

@@ -1,19 +1,18 @@
 import { Button, Typography } from "@mui/material";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { IUser } from "../../interfaces/IAuth";
-import { useStoreUser } from "../../store/store";
-import { REGISTER_TEXT_FIELDS } from "../../constants/register";
-import { formStyle, StyledContainer } from "./authStyles/authStyles";
-import { TextFieldInput } from "../inputFields/TextFieldInput";
+import { IUser } from "../interfaces/IAuth";
+import { useStoreUser } from "../store/store";
+import { TEXT_FIELDS } from "../constants/fieldsConstants";
+import { StyledContainer } from "./pagesStyles/authStyles";
+import { TextFieldInput } from "../components/form/inputFields/TextFieldInput";
+import { formStyle } from "../components/form/GeneralForm";
 
-export default function RemindPassword() {
+export default function RemindPage() {
   const navigate = useNavigate();
   const methods = useForm<IUser>({ mode: "onBlur" });
   const users = useStoreUser((state) => state.users);
-  const phoneField = REGISTER_TEXT_FIELDS.filter(
-    (f) => f.name === "phoneNumber"
-  );
+  const phoneField = TEXT_FIELDS.filter((f) => f.name === "phoneNumber");
 
   const onSubmit: SubmitHandler<IUser> = (data) => {
     const user = users?.find((u) => u.phoneNumber === data.phoneNumber);

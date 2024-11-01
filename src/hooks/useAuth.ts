@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 export const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const userToken = useStoreUser((state) => state.user?.token);
-  const getNews = useStoreUser((state) => state.getNews);
-  const getQuestions = useStoreUser((state) => state.getQuetions);
-  const getUsers = useStoreUser((state) => state.getUsers);
+  const getNews = useStoreUser((state) => state.setNews);
+  const getQuestions = useStoreUser((state) => state.setQuetions);
+  const getUsers = useStoreUser((state) => state.setUsers);
   const navigate = useNavigate();
 
   useEffect(() => {

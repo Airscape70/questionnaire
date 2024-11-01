@@ -8,8 +8,9 @@ import {
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import { FC } from "react";
-import { IField } from "../../interfaces/IField";
-import { REQUIRED_FIELD } from "../../constants/register";
+import { REQUIRED_FIELD } from "../../../constants/fieldsConstants";
+import { IField } from "../../../interfaces/IField";
+
 
 export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
   const { control } = useFormContext();

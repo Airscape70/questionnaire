@@ -1,8 +1,9 @@
 import { TextField } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { IField } from "../../interfaces/IField";
-import { REQUIRED_FIELD } from "../../constants/register";
+import { REQUIRED_FIELD } from "../../../constants/fieldsConstants";
+import { IField } from "../../../interfaces/IField";
+
 
 export const TextFieldInput: FC<IField> = ({
   name,
@@ -11,11 +12,9 @@ export const TextFieldInput: FC<IField> = ({
   pattern,
   errorMessage,
 }) => {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
 
+  const { control, formState: { errors }} = useFormContext();
+  
   const validation = {
     required: REQUIRED_FIELD,
     validate: (value: string) => {

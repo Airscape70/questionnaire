@@ -2,7 +2,6 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import JenreCard from "../questionnaire/jenreCard/JenreCard";
 import { Typography } from "@mui/material";
 import {
   closestCorners,
@@ -19,10 +18,11 @@ import { FC, useState } from "react";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { useFormContext } from "react-hook-form";
 import { DndBoxStyled } from "./fieldStyles/fieldStyles";
-import { IDnd, IJenre } from "../../interfaces/IField";
+import { IField, IOption } from "../../../interfaces/IField";
+import { JenreCard } from "../../questionnaire/jenreCard/JenreCard";
 
-export const DndColumn: FC<IDnd> = ({ name, label, options }) => {
-  const [jenres, setJenres] = useState<IJenre[]>(options);
+export const DndColumn: FC<IField> = ({ name, label, options }) => {
+  const [jenres, setJenres] = useState<IOption[] | undefined>(options);
   const { setValue, control } = useFormContext();
   setValue(name, jenres);
 
@@ -31,13 +31,13 @@ export const DndColumn: FC<IDnd> = ({ name, label, options }) => {
     if (active.id === over?.id) return;
 
     const getJenrePos = (id: UniqueIdentifier) =>
-      jenres.findIndex((jenre) => jenre.id === id);
+      jenres?.findIndex((jenre) => jenre.id === id);
 
-    setJenres((jenres) => {
-      const originalPos = getJenrePos(active.id);
-      const newPos = getJenrePos(over!.id);
-      return arrayMove(jenres, originalPos, newPos);
-    });
+      setJenres((jenres) => {
+        const originalPos = getJenrePos(active.id);
+        const newPos = getJenrePos(over!.id);
+        return arrayMove(jenres!, originalPos!, newPos!);
+      });
   };
 
   const sensors = useSensors(
@@ -59,7 +59,7 @@ export const DndColumn: FC<IDnd> = ({ name, label, options }) => {
       <DndBoxStyled>
         <SortableContext
           {...control}
-          items={jenres}
+          items={jenres!}
           strategy={verticalListSortingStrategy}
         >
           {jenres!.map((jenre) => (

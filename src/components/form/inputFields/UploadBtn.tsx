@@ -3,7 +3,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { Controller, useFormContext } from "react-hook-form";
 import { FC } from "react";
 import { VisuallyHiddenInput } from "./fieldStyles/fieldStyles";
-import { IField } from "../../interfaces/IField";
+import { IField } from "../../../interfaces/IField";
 
 export const UploadBtn: FC<IField> = ({ name, label }) => {
   const { control } = useFormContext();

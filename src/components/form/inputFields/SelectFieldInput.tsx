@@ -1,8 +1,9 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { IField } from "../../interfaces/IField";
-import { REQUIRED_FIELD } from "../../constants/register";
+import { IField } from "../../../interfaces/IField";
+import { REQUIRED_FIELD } from "../../../constants/fieldsConstants";
+
 
 export const SelectFieldInput: FC<IField> = ({ name, options, label }) => {
   const {

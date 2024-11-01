@@ -1,16 +1,16 @@
-import { Box, Button, Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { IQuestionnare } from "../../interfaces/IQuestionnare";
-import { RadioFieldInput } from "../inputFields/RadioFieldInput";
-import { TextFieldInput } from "../inputFields/TextFieldInput";
-import { SelectFieldInput } from "../inputFields/SelectFieldInput";
-import { SwitchFieldInput } from "../inputFields/SwitchFieldInput";
-import { CheckboxGroup } from "../inputFields/CheckboxGroup";
-import { DndColumn } from "../inputFields/DndColumn";
-import { UploadBtn } from "../inputFields/UploadBtn";
+import { RadioFieldInput } from "../form/inputFields/RadioFieldInput";
+import { TextFieldInput } from "../form/inputFields/TextFieldInput";
+import { SelectFieldInput } from "../form/inputFields/SelectFieldInput";
+import { SwitchFieldInput } from "../form/inputFields/SwitchFieldInput";
+import { CheckboxGroup } from "../form/inputFields/CheckboxGroup";
+import { DndColumn } from "../form/inputFields/DndColumn";
+import { UploadBtn } from "../form/inputFields/UploadBtn";
 import { useStoreUser } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import { QuestionnaireBoxStyled } from "./questionnaireStyles/questionnaireStyles";
+import { IQuestionnare } from "../../interfaces/IQuestionnare";
 
 export default function Questionnaire() {
   const methods = useForm<IQuestionnare>({ mode: "onBlur" });

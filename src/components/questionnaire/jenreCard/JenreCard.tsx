@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { IJenre } from "../../../interfaces/IField";
+import { IOption } from "../../../interfaces/IField";
 
-export default function JenreCard({ jenre }: { jenre: IJenre }) {
+export const JenreCard = ({ jenre }: { jenre: IOption }) => {
   const { id, label } = { ...jenre };
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
@@ -28,4 +28,4 @@ export default function JenreCard({ jenre }: { jenre: IJenre }) {
       <Typography variant="h6">{label}</Typography>
     </div>
   );
-}
+};

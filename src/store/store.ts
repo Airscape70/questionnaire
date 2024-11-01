@@ -28,33 +28,33 @@ interface IStoreUser {
   users?: IUser[];
   news?: INews[];
   questions?: any;
-  getUsers: () => void;
-  postUser: (data: IUser) => void;
-  getNews: (token: string) => void;
-  getQuetions: () => void;
+  setUser: (data: IUser) => void;
+  setUsers: () => void;
+  setNews: (token: string) => void;
+  setQuetions: () => void;
+  setInerests: (data: IQuestionnare) => void;
   login: (login: ILogin) => void;
   logout: () => void;
-  setInerests: (data: IQuestionnare) => void;
 }
 
 export const useStoreUser = create<IStoreUser>()(
   immer(
     persist(
       (set) => ({
-        getUsers: async () => {
+        setUsers: async () => {
           return instance
             .get("users")
             .then(({ data }) => set({ users: data }))
             .catch((error) => consoleError(error));
         },
-        getQuetions: async () => {
+        setQuetions: async () => {
           return instance
             .get("questions")
             .then(({ data }) => set({ questions: data }))
             .catch((error) => consoleError(error));
         },
 
-        postUser: async (newUser: IUser) => {
+        setUser: async (newUser: IUser) => {
           return instance
             .post("register", newUser)
             .then(({ data }) => {
@@ -78,7 +78,7 @@ export const useStoreUser = create<IStoreUser>()(
           set({ user: undefined });
         },
 
-        getNews: async (token: string) => {
+        setNews: async (token: string) => {
           return instance
             .get("news", { headers: { Authorization: `Bearer ${token}` } })
             .then((response) => set({ news: response.data }))

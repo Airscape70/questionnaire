@@ -1,20 +1,15 @@
+export interface IOption {
+  label: string;
+  value: string;
+  id: number;
+}
+
 export interface IField {
   name: string;
   label: string;
   type?: string;
-  options?: {label: string, value: string}[]
+  options?: IOption[];
   pattern?: RegExp;
   errorMessage?: string;
-}
-
-export interface IJenre {
-  id: number
-  label:  string;
-  value: string;
-}
-
-export interface IDnd {
-  name: string;
-  label: string;
-  options: IJenre[]
+  isLoginField?: boolean;
 }
