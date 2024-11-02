@@ -1,6 +1,6 @@
 import HomePage from "../pages/HomePage";
-import Questionnaire from "../components/questionnaire/Questionnaire";
 import LoginPage from "../pages/LoginPage";
+import QuestionnairePage from "../pages/QuestionnairePage";
 import RegisterPage from "../pages/RegisterPage";
 import RemindPage from "../pages/RemindPage";
 
@@ -12,5 +12,5 @@ export const authRoutes = [
 
 export const mainRoutes = [
   { path: "/home", element: <HomePage /> },
-  { path: "/questionnaire", element: <Questionnaire /> },
+  { path: "/questionnaire", element: <QuestionnairePage /> },
 ];

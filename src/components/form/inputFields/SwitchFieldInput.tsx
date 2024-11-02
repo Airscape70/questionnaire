@@ -3,7 +3,6 @@ import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { IField } from "../../../interfaces/IField";
 
-
 export const SwitchFieldInput: FC<IField> = ({ name, label }) => {
   const { control } = useFormContext();
 

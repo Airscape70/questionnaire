@@ -1,37 +1,34 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { FC } from "react";
-import { GeneralButton } from "../common/GeneralButton";
 import { TextFieldInput } from "./inputFields/TextFieldInput";
 import { SelectFieldInput } from "./inputFields/SelectFieldInput";
 import { CheckboxGroup } from "./inputFields/CheckboxGroup";
 import { RadioFieldInput } from "./inputFields/RadioFieldInput";
 import { SwitchFieldInput } from "./inputFields/SwitchFieldInput";
-import { DndColumn } from "./inputFields/DndColumn";
+import { DndColumn } from "./inputFields/DnDColumn/DndColumn";
 import { UploadBtn } from "./inputFields/UploadBtn";
 import { IField } from "../../interfaces/IField";
 import { CSSProperties } from "styled-components";
+import { MainButton } from "../../styles";
 
 interface IFormProps {
   onSubmit: (data: any) => void;
   fields: IField[];
   buttonTitle: string;
+  styles?: CSSProperties;
 }
-
-export const formStyle: CSSProperties = {
-  maxWidth: "360px",
-};
-
 
 export const GeneralForm: FC<IFormProps> = ({
   onSubmit,
   fields,
   buttonTitle,
+  styles,
 }) => {
   const methods = useForm({ mode: "onBlur" });
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} style={formStyle}>
+      <form onSubmit={methods.handleSubmit(onSubmit)} style={styles}>
         {fields.map((field) => {
           switch (field.type) {
             case "text":
@@ -68,7 +65,7 @@ export const GeneralForm: FC<IFormProps> = ({
               return null;
           }
         })}
-        <GeneralButton type="submit" title={buttonTitle} />
+        <MainButton type="submit" title={buttonTitle} />
       </form>
     </FormProvider>
   );

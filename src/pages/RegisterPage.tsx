@@ -1,10 +1,10 @@
-import { Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { StyledBox, StyledContainer } from "./pagesStyles/authStyles";
+import { AuthBox, AuthContainer } from "./pagesStyles/authStyles";
 import { IUser } from "../interfaces/IAuth";
 import { useStoreUser } from "../store/store";
 import { SELECT_FIELD, TEXT_FIELDS } from "../constants/fieldsConstants";
 import { GeneralForm } from "../components/form/GeneralForm";
+import { formStyle, MainHeading, MainSpan } from "../styles";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -17,26 +17,22 @@ export default function RegisterPage() {
   };
 
   return (
-    <StyledContainer>
-      <Typography variant="h5" component="div" gutterBottom={true}>
-        Регистрация
-      </Typography>
+    <AuthContainer>
+      <MainHeading title="Регистрация" />
 
       <GeneralForm
         onSubmit={onSubmit}
         fields={fields}
         buttonTitle="Зарегистрироваться"
+        styles={formStyle}
       />
 
-      <StyledBox>
-        <Typography component="span" padding={0}>
-          Уже есть аккаунт?
-        </Typography>
-
-        <Typography component="span" padding={0}>
-          <Link to="/login">Войти</Link>
-        </Typography>
-      </StyledBox>
-    </StyledContainer>
+      <AuthBox>
+        <MainSpan title="Уже есть аккаунт?" />
+        <Link to="/login">
+          <MainSpan title="Войти" />
+        </Link>
+      </AuthBox>
+    </AuthContainer>
   );
 }

@@ -1,10 +1,7 @@
 import { Box, Container } from "@mui/material";
 import styled from "styled-components";
 
-
-
-
-export const StyledContainer = styled(Container)({
+export const AuthContainer = styled(Container)({
   width: "50vw",
   height: "100vh",
   backgroundColor: "#fff",
@@ -16,7 +13,7 @@ export const StyledContainer = styled(Container)({
   textAlign: "center",
 });
 
-export const StyledBox = styled(Box)({
+export const AuthBox = styled(Box)({
   width: "360px",
   display: "flex",
   gap: 2,

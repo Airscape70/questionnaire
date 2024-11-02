@@ -3,8 +3,7 @@ import { ILogin, IUser } from "../interfaces/IAuth";
 import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import axios from "axios";
-import { INews } from "../interfaces/INews";
-import { IQuestionnare } from "../interfaces/IQuestionnare";
+import { IStoreUser } from "../interfaces/IStoreUser";
 
 const instance = axios.create({
   baseURL: "http://localhost:3001/",
@@ -19,23 +18,7 @@ const consoleError = (error: any) => {
   alert(`${errResponse}`);
 };
 
-interface IStoreUser {
-  user?: {
-    token: string;
-    userData: IUser;
-    interests?: IQuestionnare;
-  };
-  users?: IUser[];
-  news?: INews[];
-  questions?: any;
-  setUser: (data: IUser) => void;
-  setUsers: () => void;
-  setNews: (token: string) => void;
-  setQuetions: () => void;
-  setInerests: (data: IQuestionnare) => void;
-  login: (login: ILogin) => void;
-  logout: () => void;
-}
+
 
 export const useStoreUser = create<IStoreUser>()(
   immer(

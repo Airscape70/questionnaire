@@ -1,15 +1,17 @@
 import { Container } from "@mui/material";
 import News from "../components/news/News";
 import Header from "../components/header/Header";
-import QuestionnaireDialog from "../components/news/QuestionnaireDialog";
+import NewsDialog from "../components/news/NewsDialog";
+import { useStoreUser } from "../store/store";
 
 export default function HomePage() {
+  const interests = useStoreUser((state) => state.user?.interests);
   return (
     <>
       <Header />
       <Container maxWidth="xl">
         <News />
-        <QuestionnaireDialog />
+        {!interests && <NewsDialog />}
       </Container>
     </>
   );

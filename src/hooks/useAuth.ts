@@ -1,26 +1,31 @@
 import { useEffect, useState } from "react";
 import { useStoreUser } from "../store/store";
 import { useNavigate } from "react-router-dom";
+import { HOME, LOGIN } from "../constants/navigateContants";
 
 export const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const userToken = useStoreUser((state) => state.user?.token);
-  const getNews = useStoreUser((state) => state.setNews);
-  const getQuestions = useStoreUser((state) => state.setQuetions);
-  const getUsers = useStoreUser((state) => state.setUsers);
   const navigate = useNavigate();
+  const userToken = useStoreUser((state) => state.user?.token);
+  const setNews = useStoreUser((state) => state.setNews);
+  const setQuestions = useStoreUser((state) => state.setQuetions);
+  const setUsers = useStoreUser((state) => state.setUsers);
+
+  const setPage = (userToken: string): void => {
+    setNews(userToken);
+    setQuestions();
+    setIsAuthenticated(true);
+  };
 
   useEffect(() => {
+    setUsers();
     if (userToken) {
-      getNews(userToken);
-      getQuestions();
-      setIsAuthenticated(true);
-      navigate("/home");
+      setPage(userToken);
+      navigate(HOME);
     } else {
       setIsAuthenticated(false);
-      navigate("/login");
+      navigate(LOGIN);
     }
-    getUsers();
   }, [userToken]);
 
   return isAuthenticated;

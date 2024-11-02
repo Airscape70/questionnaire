@@ -14,7 +14,7 @@ export const CheckboxGroup: FC<IField> = ({ name, label, options }) => {
   const { ref, ...rest } = register(name);
 
   return (
-    <Box sx={{ border: "1px solid black", padding: "20px" }}>
+    <Box>
       <Typography variant="h5"> {label} </Typography>
       <Controller
         control={control}

@@ -55,7 +55,7 @@
       "id": 6
     }
   ],
-  
+
   "news": [
     {
       "id": "1",
@@ -75,8 +75,8 @@
     }
   ],
 
-  "questions": {
-    "hobby": {
+  "questions": [
+    {
       "name": "hobby",
       "label": "Твое хобби",
       "type": "checkbox",
@@ -103,66 +103,74 @@
         }
       ]
     },
-    "dream": {
+    {
       "name": "dream",
       "label": "Твоя мечта",
       "type": "text"
     },
-    "music": {
+    {
       "name": "music",
       "label": "Любимый жанр музыки",
       "type": "select",
       "options": [
         {
+          "id": 1,
           "label": "HIP-HOP",
           "value": "HIP-HOP"
         },
         {
+          "id": 2,
           "label": "ROCK",
           "value": "ROCK"
         },
         {
+          "id": 3,
           "label": "POP",
           "value": "POP"
         },
         {
+          "id": 4,
           "label": "HOUSE",
           "value": "HOUSE"
         }
       ]
     },
-    "weather": {
+    {
       "name": "weather",
       "label": "Любимое время года",
       "type": "radio",
       "options": [
         {
+          "id": 1,
           "label": "Зима",
           "value": "Зима"
         },
         {
+          "id": 2,
           "label": "Весна",
           "value": "Весна"
         },
         {
+          "id": 3,
           "label": "Лето",
           "value": "Лето"
         },
         {
+          "id": 4,
           "label": "Осень",
           "value": "Осень"
         }
       ]
     },
-    "beer": {
+    {
       "name": "beer",
       "label": "Пиво",
       "type": "switch"
     },
-    "favoritesJenres": {
+    {
       "name": "favoriteJenres",
       "label": "Топ жанров фильмов",
-      "type": "DND",
+      "type": "drag",
       "options": [
         {
           "id": 1,
@@ -196,9 +204,10 @@
         }
       ]
     },
-    "userFile": {
+    {
       "name": "userFile",
-      "label": "Загрузить"
+      "label": "Загрузить",
+      "type": "upload"
     }
-  }
+  ]
 }

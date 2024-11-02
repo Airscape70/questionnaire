@@ -1,17 +1,12 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 
-
-
 export const DndBoxStyled = styled(Box)({
-  backgroundColor: "rgb(240, 240, 240)",
-  borderRadius: "5px",
-  padding: "15px",
   width: "100%",
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
-})
+  gap: "30px"
+});
 
 export const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { IOption } from "../../../interfaces/IField";
+import { IOption } from "../../../../../interfaces/IField";
 
 export const JenreCard = ({ jenre }: { jenre: IOption }) => {
   const { id, label } = { ...jenre };
@@ -9,16 +9,15 @@ export const JenreCard = ({ jenre }: { jenre: IOption }) => {
     useSortable({ id });
 
   const style = {
-    backgroundColor: "white",
-    borderRadius: "5px",
-    boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
+    borderRadius: "10px",
+    boxShadow: "rgba(0, 0, 0, 0.16) 5px 10px 10px 5px",
     width: "100%",
     padding: "20px",
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    gap: "20px",
     touchAction: "none",
+    cursor: "pointer",
     transition,
     transform: CSS.Transform.toString(transform),
   };

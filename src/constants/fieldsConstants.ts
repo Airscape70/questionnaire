@@ -1,12 +1,13 @@
 import { IField } from "../interfaces/IField";
+import {
+  EMAIL_PATTERN,
+  FULL_NAME_PATTERN,
+  NICKNAME_PATTERN,
+  PASSWORD_PATTERN,
+  PHONE_NUMBER_PATTERN,
+} from "./patternConstants";
 
 export const REQUIRED_FIELD = "Обязательно для заполнения!";
-
-export const EMAIL_PATTERN = /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
-export const PASSWORD_PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-export const NICKNAME_PATTERN = /^[a-zA-Z0-9_.-]{3,20}$/;
-export const PHONE_NUMBER_PATTERN = /^\+7\d{3}\d{7}$/;
-export const FULL_NAME_PATTERN = /[а-яА-я]/;
 
 export const TEXT_FIELDS: IField[] = [
   {
@@ -54,11 +55,11 @@ export const TEXT_FIELDS: IField[] = [
 ];
 
 export const SELECT_FIELD: IField = {
-    name: "gender",
-    label: "Пол",
-    type: "select",
-    options: [
-      { id: 1, label: "Мужской", value: "Мужской" },
-      { id: 2, label: "Женский", value: "Женский" }
-    ]
-}
+  name: "gender",
+  label: "Пол",
+  type: "select",
+  options: [
+    { id: 1, label: "Мужской", value: "Мужской" },
+    { id: 2, label: "Женский", value: "Женский" },
+  ],
+};

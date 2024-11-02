@@ -4,7 +4,6 @@ import { Controller, useFormContext } from "react-hook-form";
 import { REQUIRED_FIELD } from "../../../constants/fieldsConstants";
 import { IField } from "../../../interfaces/IField";
 
-
 export const TextFieldInput: FC<IField> = ({
   name,
   label,
@@ -12,9 +11,11 @@ export const TextFieldInput: FC<IField> = ({
   pattern,
   errorMessage,
 }) => {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
-  const { control, formState: { errors }} = useFormContext();
-  
   const validation = {
     required: REQUIRED_FIELD,
     validate: (value: string) => {

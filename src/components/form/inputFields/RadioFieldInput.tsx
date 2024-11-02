@@ -11,7 +11,6 @@ import { FC } from "react";
 import { REQUIRED_FIELD } from "../../../constants/fieldsConstants";
 import { IField } from "../../../interfaces/IField";
 
-
 export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
   const { control } = useFormContext();
 
@@ -21,7 +20,7 @@ export const RadioFieldInput: FC<IField> = ({ name, label, options }) => {
       name={name}
       rules={{ required: REQUIRED_FIELD }}
       render={({ field }) => (
-        <Box sx={{ border: "1px solid black", padding: "20px" }}>
+        <Box>
           <FormControl>
             <Typography variant="h5"> {label}</Typography>
             <RadioGroup name={name}>

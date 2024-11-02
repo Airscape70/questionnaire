@@ -2,10 +2,11 @@ import { Typography } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useStoreUser } from "../store/store";
-import { StyledBox, StyledContainer } from "./pagesStyles/authStyles";
+import { AuthBox, AuthContainer } from "./pagesStyles/authStyles";
 import { TEXT_FIELDS } from "../constants/fieldsConstants";
 import { GeneralForm } from "../components/form/GeneralForm";
 import { ILogin } from "../interfaces/IAuth";
+import { formStyle, MainHeading, MainSpan } from "../styles";
 
 export default function LoginPage() {
   const [remindBtn, setRemindLink] = useState<boolean>(false);
@@ -19,27 +20,27 @@ export default function LoginPage() {
   };
 
   return (
-    <StyledContainer>
-      <Typography variant="h5" component="div" gutterBottom={true}>
-        Войти
-      </Typography>
-
-      <GeneralForm onSubmit={onSubmit} fields={fields} buttonTitle="Войти" />
+    <AuthContainer>
+      <MainHeading title="Войти" />
+      <GeneralForm
+        onSubmit={onSubmit}
+        fields={fields}
+        buttonTitle="Войти"
+        styles={formStyle}
+      />
 
       {remindBtn && <Link to="/reminder">Забыли пароль?</Link>}
 
-      <StyledBox>
-        <Typography component="span" padding={0}>
-          Нет аккаунта?
-        </Typography>
+      <AuthBox>
+        <MainSpan title="Нет аккаунта?" />
+        <Link to="/register">
+          <MainSpan title="Зарегистрироваться" />
+        </Link>
+      </AuthBox>
 
-        <Typography component="span" padding={0}>
-          <Link to="/register">Зарегистрироваться</Link>
-        </Typography>
-      </StyledBox>
       <Typography component="div" margin={5}>
         Уже {users?.length} зарегистрированных пользователей
       </Typography>
-    </StyledContainer>
+    </AuthContainer>
   );
 }
