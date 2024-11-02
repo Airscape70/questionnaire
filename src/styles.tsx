@@ -9,23 +9,31 @@ export const formStyle: CSSProperties = {
 interface IMainButton {
   type: "button" | "reset" | "submit";
   title: string;
+  handler?: () => void;
+  fullWidth?: boolean;
 }
 
-export const MainButton: FC<IMainButton> = ({ title, type }) => {
+export const MainButton: FC<IMainButton> = ({
+  title,
+  type,
+  handler,
+  fullWidth = true,
+}) => {
   return (
     <Button
       type={type}
       variant="contained"
-      fullWidth={true}
+      fullWidth={fullWidth}
       disableElevation={true}
-      sx={{ mt: 2 }}
+      onClick={handler}
+      sx={{ mt: "10px" }}
     >
       {title}
     </Button>
   );
 };
 
-export const MainHeading = ({title}: {title: string}) => {
+export const MainHeading = ({ title }: { title: string }) => {
   return (
     <Typography variant="h4" component="div" gutterBottom={true}>
       {title}
@@ -33,7 +41,15 @@ export const MainHeading = ({title}: {title: string}) => {
   );
 };
 
-export const MainSpan = ({title}: {title: string}) => {
+export const SubHeading = ({ title }: { title: string }) => {
+  return (
+    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+      {title}
+    </Typography>
+  );
+};
+
+export const MainSpan = ({ title }: { title: string }) => {
   return (
     <Typography component="span" padding={0}>
       {title}

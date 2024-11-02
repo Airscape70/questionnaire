@@ -5,6 +5,7 @@ import { useStoreUser } from "../store/store";
 import { SELECT_FIELD, TEXT_FIELDS } from "../constants/fieldsConstants";
 import { GeneralForm } from "../components/form/GeneralForm";
 import { formStyle, MainHeading, MainSpan } from "../styles";
+import { HOME } from "../constants/navigateContants";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function RegisterPage() {
 
   const onSubmit = (data: IUser) => {
     postUser(data);
-    navigate("/home");
+    navigate(HOME);
   };
 
   return (

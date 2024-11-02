@@ -16,7 +16,7 @@ export const SelectFieldInput: FC<IField> = ({ name, options, label }) => {
       name={name}
       rules={{ required: REQUIRED_FIELD }}
       render={({ field }) => (
-        <FormControl fullWidth >
+        <FormControl fullWidth sx={{mt: '10px'}}>
           <InputLabel id={name} size="small">
             {label}
           </InputLabel>
