@@ -13,6 +13,10 @@ export default function LoginPage() {
   const login = useStoreUser((state) => state.login);
   const users = useStoreUser((state) => state.users);
   const fields = TEXT_FIELDS.filter((field) => field.isLoginField);
+  const questionnaireCount = users?.reduce(
+    (acc, user) => (acc += user.interests ? 1 : 0),
+    0
+  );
 
   const onSubmit = async (data: ILogin) => {
     login(data);
@@ -38,8 +42,10 @@ export default function LoginPage() {
         </Link>
       </AuthBox>
 
-      <Typography component="div" margin={5}>
-        Уже {users?.length} зарегистрированных пользователей
+      <Typography component="div" margin={2}>
+        {users?.length} зарегистрированных пользователей!
+        <br />
+        {questionnaireCount} заполненных анкет!
       </Typography>
     </AuthContainer>
   );

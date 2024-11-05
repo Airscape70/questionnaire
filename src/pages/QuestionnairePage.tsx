@@ -4,26 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { useStoreUser } from "../store/store";
 import { IQuestionnare } from "../interfaces/IQuestionnare";
 import { GeneralForm } from "../components/form/GeneralForm";
-import { CSSProperties } from "styled-components";
 import { HOME } from "../constants/navigateContants";
-
-export const QuestionnaireFormStyle: CSSProperties = {
-  maxWidth: "500px",
-  maxHeight: "100vh",
-  display: "flex",
-  flexFlow: "column wrap",
-  columnGap: "50px",
-  rowGap: "30px",
-  margin: "20px 0px",
-};
+import { QuestionnaireFormStyle } from "./pagesStyles/questionnaireStyles";
 
 export default function QuestionnairePage() {
   const questions = useStoreUser((state) => state.questions);
-  const setIterests = useStoreUser((state) => state.setInerests);
+  const setUserInterests = useStoreUser((state) => state.setUserInterests);
+  const userId = useStoreUser((state) => state.user!.userData.id)
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<IQuestionnare> = (data) => {
-    setIterests(data);
+    setUserInterests(userId, data);
     alert("Большое спасибо!");
     navigate(HOME);
   };

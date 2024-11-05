@@ -4,6 +4,7 @@ import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import axios from "axios";
 import { IStoreUser } from "../interfaces/IStoreUser";
+import { IQuestionnare } from "../interfaces/IQuestionnare";
 
 const instance = axios.create({
   baseURL: "http://localhost:3001/",
@@ -17,8 +18,6 @@ const consoleError = (error: any) => {
     : `Ошибка настройки запроса: ${error.message}`;
   alert(`${errResponse}`);
 };
-
-
 
 export const useStoreUser = create<IStoreUser>()(
   immer(
@@ -46,6 +45,18 @@ export const useStoreUser = create<IStoreUser>()(
             .catch((error) => consoleError(error));
         },
 
+        setUserInterests: async (id: number, interests: IQuestionnare) => {
+          return instance
+            .patch(`users/${id}`, { interests: interests })
+            .then(({ data }) => {
+              console.log(data);
+              set((state) => ({
+                user: { ...state.user, userData: data },
+              }));
+            })
+            .catch((error) => consoleError(error));
+        },
+
         login: async (login: ILogin) => {
           return instance
             .post("login", login)
@@ -66,12 +77,6 @@ export const useStoreUser = create<IStoreUser>()(
             .get("news", { headers: { Authorization: `Bearer ${token}` } })
             .then((response) => set({ news: response.data }))
             .catch((error) => consoleError(error));
-        },
-
-        setInerests: (data) => {
-          set((state) => ({
-            user: { ...state.user, interests: data },
-          }));
         },
       }),
 

@@ -6,7 +6,6 @@ export interface IStoreUser {
   user?: {
     token: string;
     userData: IUser;
-    interests?: IQuestionnare;
   };
   users?: IUser[];
   news?: INews[];
@@ -15,7 +14,7 @@ export interface IStoreUser {
   setUsers: () => void;
   setNews: (token: string) => void;
   setQuetions: () => void;
-  setInerests: (data: IQuestionnare) => void;
+  setUserInterests: (id: number, interests: IQuestionnare) => void;
   login: (login: ILogin) => void;
   logout: () => void;
 }
