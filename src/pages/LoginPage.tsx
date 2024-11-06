@@ -13,10 +13,8 @@ export default function LoginPage() {
   const login = useStoreUser((state) => state.login);
   const users = useStoreUser((state) => state.users);
   const fields = TEXT_FIELDS.filter((field) => field.isLoginField);
-  const questionnaireCount = users?.reduce(
-    (acc, user) => (acc += user.interests ? 1 : 0),
-    0
-  );
+  const questionnaireCount = users?.reduce((acc, user) =>
+    (acc += user.interests ? 1 : 0), 0);
 
   const onSubmit = async (data: ILogin) => {
     login(data);

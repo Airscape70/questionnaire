@@ -25,7 +25,7 @@ export default function RemindPage() {
 
   return (
     <AuthContainer>
-      <MainHeading title=" Введите ваш номер телефона" />
+      <MainHeading title="Введите ваш номер телефона" />
       <GeneralForm
         onSubmit={onSubmit}
         fields={fields}

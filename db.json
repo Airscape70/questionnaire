@@ -11,17 +11,28 @@
       "interests": {
         "hobby": [
           "Рисование",
-          "Настольные игры"
+          "Автомобили",
+          "Видеоигры"
         ],
-        "dream": "sdfsfd",
-        "music": "ROCK",
-        "weather": "Весна",
+        "dream": "junior f-d",
+        "music": "HIP-HOP",
+        "weather": "Зима",
         "beer": true,
         "favoriteJenres": [
+          {
+            "id": 6,
+            "label": "Триллер",
+            "value": "Триллер"
+          },
           {
             "id": 1,
             "label": "Ужасы",
             "value": "Ужасы"
+          },
+          {
+            "id": 5,
+            "label": "Боевик",
+            "value": "Боевик"
           },
           {
             "id": 2,
@@ -37,16 +48,6 @@
             "id": 4,
             "label": "Мультфильм",
             "value": "Мультфильм"
-          },
-          {
-            "id": 5,
-            "label": "Боевик",
-            "value": "Боевик"
-          },
-          {
-            "id": 6,
-            "label": "Триллер",
-            "value": "Триллер"
           }
         ]
       }
@@ -61,28 +62,23 @@
       "id": 2,
       "interests": {
         "hobby": [
-          "Рисование",
-          "Прогулка"
+          "Танцы",
+          "Макияж"
         ],
-        "dream": "aaaaaaaas",
-        "music": "POP",
-        "weather": "Зима",
-        "beer": true,
+        "dream": "dima@ya.ru",
+        "flower": "Хризантемы",
+        "weather": "Лето",
+        "Moda": true,
         "favoriteJenres": [
           {
-            "id": 6,
-            "label": "Триллер",
-            "value": "Триллер"
+            "id": 1,
+            "label": "Ужасы",
+            "value": "Ужасы"
           },
           {
             "id": 2,
             "label": "Комедия",
             "value": "Комедия"
-          },
-          {
-            "id": 1,
-            "label": "Ужасы",
-            "value": "Ужасы"
           },
           {
             "id": 3,
@@ -98,6 +94,11 @@
             "id": 5,
             "label": "Боевик",
             "value": "Боевик"
+          },
+          {
+            "id": 6,
+            "label": "Триллер",
+            "value": "Триллер"
           }
         ]
       }
@@ -145,48 +146,16 @@
       "phoneNumber": "+78889990000",
       "fullName": "Бенов Бен ",
       "gender": "Мужской",
-      "id": 7,
-      "interests": {
-        "hobby": [
-          "Настольные игры"
-        ],
-        "dream": "Стул",
-        "music": "ROCK",
-        "weather": "Осень",
-        "beer": true,
-        "favoriteJenres": [
-          {
-            "id": 1,
-            "label": "Ужасы",
-            "value": "Ужасы"
-          },
-          {
-            "id": 5,
-            "label": "Боевик",
-            "value": "Боевик"
-          },
-          {
-            "id": 6,
-            "label": "Триллер",
-            "value": "Триллер"
-          },
-          {
-            "id": 2,
-            "label": "Комедия",
-            "value": "Комедия"
-          },
-          {
-            "id": 3,
-            "label": "Драма",
-            "value": "Драма"
-          },
-          {
-            "id": 4,
-            "label": "Мультфильм",
-            "value": "Мультфильм"
-          }
-        ]
-      }
+      "id": 7
+    },
+    {
+      "email": "dima@ya.ru",
+      "password": "$2a$10$cZ8523vrk98sgEBZZgXxNe858FR0JMyrPTK3d8zY4KfGjv8HiiY.S",
+      "nickName": "Demon",
+      "phoneNumber": "+77778889999",
+      "fullName": "Краснов Дмитрий Иванович",
+      "gender": "Мужской",
+      "id": 8
     }
   ],
   "news": [
@@ -207,139 +176,276 @@
       "maincontent": "Как пишут «Известия» , Ульяновский автозавод представит обновленный «Патриот» в IV квартале 2025 года. Компанию агрегату составитшестиступенчатая «механика» производства Заволжского моторного завода и электромеханическая раздатка.Motor В салоне нового «Патриота» разместятся переделанные передняя панель и центральный тоннель, а также более компактный по диаметру руль с с утолщениями в местах хвата и подушкой безопасности.CarsWeek.ru"
     }
   ],
-  "questions": [
-    {
-      "name": "hobby",
-      "label": "Твое хобби",
-      "type": "checkbox",
-      "options": [
-        {
-          "label": "Рисование",
-          "value": "Рисование"
-        },
-        {
-          "label": "Танцы",
-          "value": "Танцы"
-        },
-        {
-          "label": "Прогулка",
-          "value": "Прогулка"
-        },
-        {
-          "label": "Настольные игры",
-          "value": "Настольные игры"
-        },
-        {
-          "label": "Спорт",
-          "value": "Спорт"
-        }
-      ]
-    },
-    {
-      "name": "dream",
-      "label": "Твоя мечта",
-      "type": "text"
-    },
-    {
-      "name": "music",
-      "label": "Любимый жанр музыки",
-      "type": "select",
-      "options": [
-        {
-          "id": 1,
-          "label": "HIP-HOP",
-          "value": "HIP-HOP"
-        },
-        {
-          "id": 2,
-          "label": "ROCK",
-          "value": "ROCK"
-        },
-        {
-          "id": 3,
-          "label": "POP",
-          "value": "POP"
-        },
-        {
-          "id": 4,
-          "label": "HOUSE",
-          "value": "HOUSE"
-        }
-      ]
-    },
-    {
-      "name": "weather",
-      "label": "Любимое время года",
-      "type": "radio",
-      "options": [
-        {
-          "id": 1,
-          "label": "Зима",
-          "value": "Зима"
-        },
-        {
-          "id": 2,
-          "label": "Весна",
-          "value": "Весна"
-        },
-        {
-          "id": 3,
-          "label": "Лето",
-          "value": "Лето"
-        },
-        {
-          "id": 4,
-          "label": "Осень",
-          "value": "Осень"
-        }
-      ]
-    },
-    {
-      "name": "beer",
-      "label": "Пиво",
-      "type": "switch"
-    },
-    {
-      "name": "favoriteJenres",
-      "label": "Топ жанров фильмов",
-      "type": "drag",
-      "options": [
-        {
-          "id": 1,
-          "label": "Ужасы",
-          "value": "Ужасы"
-        },
-        {
-          "id": 2,
-          "label": "Комедия",
-          "value": "Комедия"
-        },
-        {
-          "id": 3,
-          "label": "Драма",
-          "value": "Драма"
-        },
-        {
-          "id": 4,
-          "label": "Мультфильм",
-          "value": "Мультфильм"
-        },
-        {
-          "id": 5,
-          "label": "Боевик",
-          "value": "Боевик"
-        },
-        {
-          "id": 6,
-          "label": "Триллер",
-          "value": "Триллер"
-        }
-      ]
-    },
-    {
-      "name": "userFile",
-      "label": "Загрузить",
-      "type": "upload"
-    }
-  ]
+  "questions": {
+    "male": [
+      {
+        "name": "hobby",
+        "label": "Твое хобби",
+        "type": "checkbox",
+        "options": [
+          {
+            "label": "Рисование",
+            "value": "Рисование"
+          },
+          {
+            "label": "Танцы",
+            "value": "Танцы"
+          },
+          {
+            "label": "Автомобили",
+            "value": "Автомобили"
+          },
+          {
+            "label": "Видеоигры",
+            "value": "Видеоигры"
+          },
+          {
+            "label": "Спорт",
+            "value": "Спорт"
+          }
+        ]
+      },
+      {
+        "name": "dream",
+        "label": "Твоя мечта",
+        "type": "text"
+      },
+      {
+        "name": "music",
+        "label": "Любимый жанр музыки",
+        "type": "select",
+        "options": [
+          {
+            "id": 1,
+            "label": "HIP-HOP",
+            "value": "HIP-HOP"
+          },
+          {
+            "id": 2,
+            "label": "ROCK",
+            "value": "ROCK"
+          },
+          {
+            "id": 3,
+            "label": "POP",
+            "value": "POP"
+          },
+          {
+            "id": 4,
+            "label": "HOUSE",
+            "value": "HOUSE"
+          }
+        ]
+      },
+      {
+        "name": "weather",
+        "label": "Любимое время года",
+        "type": "radio",
+        "options": [
+          {
+            "id": 1,
+            "label": "Зима",
+            "value": "Зима"
+          },
+          {
+            "id": 2,
+            "label": "Весна",
+            "value": "Весна"
+          },
+          {
+            "id": 3,
+            "label": "Лето",
+            "value": "Лето"
+          },
+          {
+            "id": 4,
+            "label": "Осень",
+            "value": "Осень"
+          }
+        ]
+      },
+      {
+        "name": "beer",
+        "label": "Пиво",
+        "type": "switch"
+      },
+      {
+        "name": "favoriteJenres",
+        "label": "Топ жанров фильмов",
+        "type": "drag",
+        "options": [
+          {
+            "id": 1,
+            "label": "Ужасы",
+            "value": "Ужасы"
+          },
+          {
+            "id": 2,
+            "label": "Комедия",
+            "value": "Комедия"
+          },
+          {
+            "id": 3,
+            "label": "Драма",
+            "value": "Драма"
+          },
+          {
+            "id": 4,
+            "label": "Мультфильм",
+            "value": "Мультфильм"
+          },
+          {
+            "id": 5,
+            "label": "Боевик",
+            "value": "Боевик"
+          },
+          {
+            "id": 6,
+            "label": "Триллер",
+            "value": "Триллер"
+          }
+        ]
+      },
+      {
+        "name": "userFile",
+        "label": "Загрузить",
+        "type": "upload"
+      }
+    ],
+    "female": [
+      {
+        "name": "hobby",
+        "label": "Твое хобби",
+        "type": "checkbox",
+        "options": [
+          {
+            "label": "Рисование",
+            "value": "Рисование"
+          },
+          {
+            "label": "Танцы",
+            "value": "Танцы"
+          },
+          {
+            "label": "Макияж",
+            "value": "Макияж"
+          },
+          {
+            "label": "Вечеринки",
+            "value": "Вечеринки"
+          },
+          {
+            "label": "Спорт",
+            "value": "Спорт"
+          }
+        ]
+      },
+      {
+        "name": "dream",
+        "label": "Твоя мечта",
+        "type": "text"
+      },
+      {
+        "name": "flower",
+        "label": "Любимые цветы",
+        "type": "select",
+        "options": [
+          {
+            "id": 1,
+            "label": "Розы",
+            "value": "Розы"
+          },
+          {
+            "id": 2,
+            "label": "Тюльпаны",
+            "value": "Тюльпаны"
+          },
+          {
+            "id": 3,
+            "label": "Хризантемы",
+            "value": "Хризантемы"
+          },
+          {
+            "id": 4,
+            "label": "Кактусы",
+            "value": "Кактусы"
+          }
+        ]
+      },
+      {
+        "name": "weather",
+        "label": "Любимое время года",
+        "type": "radio",
+        "options": [
+          {
+            "id": 1,
+            "label": "Зима",
+            "value": "Зима"
+          },
+          {
+            "id": 2,
+            "label": "Весна",
+            "value": "Весна"
+          },
+          {
+            "id": 3,
+            "label": "Лето",
+            "value": "Лето"
+          },
+          {
+            "id": 4,
+            "label": "Осень",
+            "value": "Осень"
+          }
+        ]
+      },
+      {
+        "name": "Moda",
+        "label": "Мода",
+        "type": "switch"
+      },
+      {
+        "name": "favoriteJenres",
+        "label": "Топ жанров фильмов",
+        "type": "drag",
+        "options": [
+          {
+            "id": 1,
+            "label": "Ужасы",
+            "value": "Ужасы"
+          },
+          {
+            "id": 2,
+            "label": "Комедия",
+            "value": "Комедия"
+          },
+          {
+            "id": 3,
+            "label": "Драма",
+            "value": "Драма"
+          },
+          {
+            "id": 4,
+            "label": "Мультфильм",
+            "value": "Мультфильм"
+          },
+          {
+            "id": 5,
+            "label": "Боевик",
+            "value": "Боевик"
+          },
+          {
+            "id": 6,
+            "label": "Триллер",
+            "value": "Триллер"
+          }
+        ]
+      },
+      {
+        "name": "userFile",
+        "label": "Загрузить",
+        "type": "upload"
+      }
+    ]
+  }
 }

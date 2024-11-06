@@ -22,7 +22,7 @@ const consoleError = (error: any) => {
 export const useStoreUser = create<IStoreUser>()(
   immer(
     persist(
-      (set) => ({
+      (set, get) => ({
         setUsers: async () => {
           return instance
             .get("users")
@@ -32,7 +32,11 @@ export const useStoreUser = create<IStoreUser>()(
         setQuetions: async () => {
           return instance
             .get("questions")
-            .then(({ data }) => set({ questions: data }))
+            .then(({ data }) => {
+              get().user?.userData.gender === "Мужской"
+                ? set({ questions: data.male })
+                : set({ questions: data.female });
+            })
             .catch((error) => consoleError(error));
         },
 
@@ -49,7 +53,6 @@ export const useStoreUser = create<IStoreUser>()(
           return instance
             .patch(`users/${id}`, { interests: interests })
             .then(({ data }) => {
-              console.log(data);
               set((state) => ({
                 user: { ...state.user, userData: data },
               }));
